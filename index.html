@@ -1,3 +1,52 @@
+<?php
+// ==============================================
+// 1. DATABASE CONNECTION (AUTOMATIC SETUP)
+// ==============================================
+// اگر ڈیٹا بیس نہیں ہے تو یہ خود بنا لے گا۔ GitHub پر چلانے کے لیے بہترین!
+$db_file = __DIR__ . '/school_data.sqlite'; 
+
+try {
+    $pdo = new PDO("sqlite:" . $db_file);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // Automatically create tables if they don't exist
+    $pdo->exec("CREATE TABLE IF NOT EXISTS activities (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        image_path TEXT NOT NULL,
+        uploaded_at DATETIME DEFAULT CURRENT_TIMESTAMP
+    )");
+} catch (PDOException $e) {
+    die("Database Error: " . $e->getMessage());
+}
+
+// ==============================================
+// 2. HANDLE UPLOAD REQUEST (BACKEND)
+// ==============================================
+$upload_msg = "";
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_FILES['activity_image'])) {
+    $target_dir = "uploads/";
+    if (!file_exists($target_dir)) { mkdir($target_dir, 0777, true); }
+    
+    $file_name = time() . "_" . basename($_FILES["activity_image"]["name"]);
+    $target_file = $target_dir . $file_name;
+    
+    if (move_uploaded_file($_FILES["activity_image"]["tmp_name"], $target_file)) {
+        $stmt = $pdo->prepare("INSERT INTO activities (image_path) VALUES (?)");
+        $stmt->execute([$target_file]);
+        $upload_msg = "<div style='color:green; text-align:center; margin:10px 0;'>✅ Image uploaded successfully!</div>";
+    } else {
+        $upload_msg = "<div style='color:red; text-align:center; margin:10px 0;'>❌ Upload failed. Create an 'uploads' folder with write permissions.</div>";
+    }
+}
+
+// Fetch Images for Gallery
+$stmt = $pdo->query("SELECT * FROM activities ORDER BY uploaded_at DESC");
+$images = $stmt->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- ==============================================
+3. FRONTEND HTML, CSS & JAVASCRIPT (ALL IN ONE)
+============================================== -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,177 +55,82 @@
     <title>The Royal Grammar School & Academy</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <style>
-        /* Color Palette: Royal Blue & Gold */
-        :root {
-            --primary-blue: #00205b;
-            --primary-gold: #d4af37;
-            --light-bg: #f4f7f6;
-            --white: #ffffff;
-            --text-dark: #333333;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
-
+        :root { --primary-blue: #00205b; --primary-gold: #d4af37; --light-bg: #f4f7f6; --white: #ffffff; --text-dark: #333333; }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
         body { background-color: var(--light-bg); color: var(--text-dark); }
 
-        /* Header & Navigation */
-        header {
-            background-color: var(--white);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 5%;
-            max-width: 1200px;
-            margin: auto;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
+        /* Header */
+        header { background-color: var(--white); box-shadow: 0 2px 10px rgba(0,0,0,0.1); position: sticky; top: 0; z-index: 1000; }
+        .navbar { display: flex; justify-content: space-between; align-items: center; padding: 15px 5%; max-width: 1200px; margin: auto; }
+        .logo-container { display: flex; align-items: center; gap: 15px; }
         .logo-img { width: 70px; height: auto; }
         .logo-text h1 { font-size: 1.5rem; color: var(--primary-blue); }
         .logo-text p { font-size: 0.8rem; color: var(--primary-gold); font-weight: 600; }
         
-        .nav-links a {
-            text-decoration: none;
-            color: var(--primary-blue);
-            margin: 0 15px;
-            font-weight: 600;
-            transition: color 0.3s;
-        }
+        .nav-links a { text-decoration: none; color: var(--primary-blue); margin: 0 15px; font-weight: 600; transition: color 0.3s; }
         .nav-links a:hover { color: var(--primary-gold); }
-        
-        .nav-links a.admin-btn {
-            background: var(--primary-gold);
-            color: var(--primary-blue);
-            padding: 5px 15px;
-            border-radius: 5px;
-            font-size: 0.9rem;
-        }
+        .nav-links a.admin-btn { background: var(--primary-gold); color: var(--primary-blue); padding: 5px 15px; border-radius: 5px; font-size: 0.9rem; }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(rgba(0, 32, 91, 0.8), rgba(0, 32, 91, 0.8)), url('banner-image.jpg') center/cover;
-            color: var(--white);
-            text-align: center;
-            padding: 100px 20px;
-        }
+        /* Hero */
+        .hero { background: linear-gradient(rgba(0, 32, 91, 0.8), rgba(0, 32, 91, 0.8)), url('https://via.placeholder.com/1920x600') center/cover; color: var(--white); text-align: center; padding: 100px 20px; }
         .hero h2 { font-size: 3rem; margin-bottom: 20px; color: var(--primary-gold); }
         .hero p { font-size: 1.2rem; margin-bottom: 30px; }
-        .btn {
-            background-color: var(--primary-gold);
-            color: var(--primary-blue);
-            padding: 12px 30px;
-            text-decoration: none;
-            font-weight: bold;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            transition: 0.3s;
-        }
+        .btn { background-color: var(--primary-gold); color: var(--primary-blue); padding: 12px 30px; text-decoration: none; font-weight: bold; border-radius: 5px; font-size: 1.1rem; transition: 0.3s; }
         .btn:hover { background-color: #fff; }
 
         /* Sections */
         .section-container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
         .section-title { text-align: center; font-size: 2.2rem; color: var(--primary-blue); margin-bottom: 40px; }
 
-        /* Programs Grid */
-        .programs-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-        }
-        .program-card {
-            background: var(--white);
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            text-align: center;
-            border-top: 5px solid var(--primary-gold);
-        }
+        /* Programs */
+        .programs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .program-card { background: var(--white); padding: 20px; border-radius: 8px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); text-align: center; border-top: 5px solid var(--primary-gold); }
         .program-card img { width: 100%; border-radius: 5px; margin-bottom: 15px; }
         .program-card h3 { color: var(--primary-blue); margin-bottom: 10px; }
 
-        /* Activities Gallery (New Section Added) */
-        .activities-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-        }
-        .activity-item img {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            border-radius: 10px;
-            border: 4px solid var(--white);
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+        /* Activities Gallery */
+        .activities-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+        .activity-item img { width: 100%; height: 250px; object-fit: cover; border-radius: 10px; border: 4px solid var(--white); box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        /* Contact Section */
-        .contact-wrapper {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 40px;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
+        /* Contact */
+        .contact-wrapper { display: flex; flex-wrap: wrap; gap: 40px; background: var(--white); padding: 40px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
         .contact-info, .contact-form { flex: 1; min-width: 300px; }
-        
         .contact-info h3 { color: var(--primary-blue); margin-bottom: 20px; font-size: 1.5rem; }
         .contact-info p { margin-bottom: 15px; font-size: 1.1rem; }
         
         .action-buttons { display: flex; flex-direction: column; gap: 15px; margin-top: 20px; }
-        .action-btn {
-            display: inline-block; text-align: center; padding: 12px; border-radius: 5px;
-            font-weight: bold; text-decoration: none; color: var(--white); transition: 0.3s;
-        }
+        .action-btn { display: inline-block; text-align: center; padding: 12px; border-radius: 5px; font-weight: bold; text-decoration: none; color: var(--white); transition: 0.3s; }
         .btn-whatsapp { background-color: #25D366; }
         .btn-call { background-color: var(--primary-blue); }
         .btn-sms { background-color: var(--primary-gold); color: var(--primary-blue); }
         .action-btn:hover { opacity: 0.8; }
 
-        /* Form Layout */
+        /* Form */
         .form-group { margin-bottom: 15px; }
         .form-group label { display: block; margin-bottom: 5px; font-weight: 600; }
         .form-control { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; font-size: 1rem; }
         textarea.form-control { resize: vertical; height: 100px; }
-        .submit-btn {
-            background-color: var(--primary-blue); color: var(--white); border: none;
-            padding: 12px 20px; font-size: 1.1rem; border-radius: 5px; cursor: pointer;
-            width: 100%; font-weight: bold;
-        }
+        .submit-btn { background-color: var(--primary-blue); color: var(--white); border: none; padding: 12px 20px; font-size: 1.1rem; border-radius: 5px; cursor: pointer; width: 100%; font-weight: bold; }
         .submit-btn:hover { background-color: var(--primary-gold); color: var(--primary-blue); }
 
         /* Footer */
         footer { background-color: var(--primary-blue); color: var(--white); text-align: center; padding: 20px; margin-top: 50px; }
 
-        @media(max-width: 768px) {
-            .navbar { flex-direction: column; gap: 15px; }
-            .hero h2 { font-size: 2rem; }
-        }
+        /* Upload Section Layout (Collapsible Admin Area) */
+        .upload-area { display: none; background: #fff; padding: 30px; border: 2px dashed var(--primary-blue); border-radius: 10px; margin-bottom: 30px; max-width: 500px; margin-left: auto; margin-right: auto; text-align: center; }
+        .upload-area input, .upload-area button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ccc; border-radius: 5px; }
+        .upload-area button { background: var(--primary-blue); color: white; font-weight: bold; cursor: pointer; }
+        .upload-area button:hover { background: var(--primary-gold); color: var(--primary-blue); }
+
+        @media(max-width: 768px) { .navbar { flex-direction: column; gap: 15px; } .hero h2 { font-size: 2rem; } }
     </style>
 </head>
 <body>
 
-    <?php include 'db_connect.php'; ?>
-
     <header>
         <div class="navbar">
             <div class="logo-container">
-                <img src="logo.png" alt="School Logo" class="logo-img" onerror="this.style.display='none'">
+                <img src="https://via.placeholder.com/70" alt="School Logo" class="logo-img">
                 <div class="logo-text">
                     <h1>THE ROYAL</h1>
                     <p>GRAMMAR SCHOOL & ACADEMY</p>
@@ -187,11 +141,24 @@
                 <a href="#programs">Programs</a>
                 <a href="#activities">Activities</a>
                 <a href="#contact">Contact</a>
-                <!-- نیا اپ لوڈ لنک جو صرف ایڈمن کو نظر آئے گا -->
-                <a href="admin_upload.php" class="admin-btn">+ Upload Activities</a>
+                <!-- Click to Show/Hide Upload Panel -->
+                <a href="javascript:void(0);" onclick="toggleUpload()" class="admin-btn">📤 Upload Activities</a>
             </nav>
         </div>
     </header>
+
+    <!-- UPLOAD FORM (HIDDEN BY DEFAULT) -->
+    <div class="section-container" id="uploadPanel">
+        <div class="upload-area">
+            <h3 style="color: var(--primary-blue);">Upload New Activity Image</h3>
+            <?php echo $upload_msg; ?>
+            <form method="POST" enctype="multipart/form-data">
+                <input type="file" name="activity_image" required>
+                <button type="submit" name="upload">Upload to Gallery</button>
+            </form>
+            <p style="font-size: 0.8rem; margin-top:10px;">(Images appear instantly in the Activities section below)</p>
+        </div>
+    </div>
 
     <section id="home" class="hero">
         <h2>Building Character, Excellence & Future Leaders</h2>
@@ -203,54 +170,47 @@
         <h2 class="section-title">Our Programs</h2>
         <div class="programs-grid">
             <div class="program-card">
-                <img src="english-course.jpg" alt="English Academy" onerror="this.style.display='none'">
+                <img src="https://via.placeholder.com/400x200" alt="English Academy">
                 <h3>English Academy (3 Months)</h3>
                 <p>Grammar, Vocabulary, Spoken English, and Confidence Building. Timing: 5:00 PM to 7:00 PM.</p>
             </div>
             <div class="program-card">
-                <img src="school-admission.jpg" alt="School Admissions" onerror="this.style.display='none'">
+                <img src="https://via.placeholder.com/400x200" alt="School Admissions">
                 <h3>School Admissions</h3>
                 <p>Playgroup to KG-II & KG to Intermediate. Cambridge Trained Faculty, Digital Smart Classrooms.</p>
             </div>
             <div class="program-card">
-                <img src="library-facility.jpg" alt="Library Facility" onerror="this.style.display='none'">
+                <img src="https://via.placeholder.com/400x200" alt="Library Facility">
                 <h3>Off-Campus Library</h3>
                 <p>24/7 Solar Backup, Peaceful Environment, Fast Wi-Fi, and a vast collection of books.</p>
             </div>
         </div>
     </section>
 
-    <!-- === NEW ACTIVITIES SECTION START === -->
+    <!-- DYNAMIC ACTIVITIES SECTION -->
     <section id="activities" class="section-container">
         <h2 class="section-title">School Activities & Events</h2>
         <div class="activities-grid">
-            <?php
-            $sql = "SELECT * FROM activities ORDER BY uploaded_at DESC";
-            $result = $conn->query($sql);
-            if ($result->num_rows > 0) {
-                while($row = $result->fetch_assoc()) {
-                    echo '<div class="activity-item">';
-                    echo '<img src="' . htmlspecialchars($row["image_path"]) . '" alt="School Activity">';
-                    echo '</div>';
-                }
-            } else {
-                echo '<p style="text-align:center; grid-column: 1/-1; color:#777;">No activities uploaded yet. Click the "Upload Activities" button in the menu.</p>';
-            }
-            ?>
+            <?php if (count($images) > 0): ?>
+                <?php foreach ($images as $row): ?>
+                    <div class="activity-item">
+                        <img src="<?php echo htmlspecialchars($row['image_path']); ?>" alt="School Activity">
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p style="text-align:center; grid-column: 1/-1; color:#777;">No activities uploaded yet. Click "Upload Activities" in the menu.</p>
+            <?php endif; ?>
         </div>
     </section>
-    <!-- === NEW ACTIVITIES SECTION END === -->
 
     <section id="contact" class="section-container">
         <h2 class="section-title">Contact & Registration</h2>
         <div class="contact-wrapper">
-            
             <div class="contact-info">
                 <h3>Get in Touch</h3>
                 <p><strong>Address:</strong> Peoples Colony, Near DHO Office, Khairpur Mirs</p>
                 <p><strong>Phone 1:</strong> +92-301-1297766</p>
                 <p><strong>Phone 2:</strong> +92-313-2862344</p>
-                
                 <div class="action-buttons">
                     <a href="https://wa.me/923011297766" target="_blank" class="action-btn btn-whatsapp">💬 Message on WhatsApp</a>
                     <a href="tel:+923011297766" class="action-btn btn-call">📞 Tap to Call</a>
@@ -287,7 +247,6 @@
                     <button type="submit" class="submit-btn">Send Details via WhatsApp</button>
                 </form>
             </div>
-
         </div>
     </section>
 
@@ -296,7 +255,9 @@
         <p>Learn Today, Lead Tomorrow!</p>
     </footer>
 
+    <!-- JAVASCRIPT FOR WHATSAPP AND TOGGLE UPLOAD -->
     <script>
+        // WhatsApp Form Logic
         function sendToWhatsApp(event) {
             event.preventDefault(); 
 
@@ -309,6 +270,17 @@
             const waText = `*New Inquiry from Website*%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Interested In:* ${course}%0A*Message:* ${message}`;
             const waLink = `https://wa.me/${whatsappNumber}?text=${waText}`;
             window.open(waLink, '_blank');
+        }
+
+        // Toggle Upload Menu Logic (Click the button to show/hide upload form)
+        function toggleUpload() {
+            var panel = document.getElementById('uploadPanel');
+            if (panel.style.display === 'none' || panel.style.display === '') {
+                panel.style.display = 'block';
+                window.scrollTo({ top: panel.offsetTop - 50, behavior: 'smooth' });
+            } else {
+                panel.style.display = 'none';
+            }
         }
     </script>
 </body>
