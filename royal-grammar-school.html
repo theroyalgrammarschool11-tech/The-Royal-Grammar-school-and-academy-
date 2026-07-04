@@ -1,0 +1,2670 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Royal Grammar School & Academy, Khairpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+<style>
+/* ============================
+   DESIGN TOKENS
+   ============================ */
+:root {
+  --navy: #00205b;
+  --navy-deep: #001540;
+  --gold: #c9a227;
+  --gold-light: #e8c547;
+  --gold-pale: #f9f2dc;
+  --ivory: #fafaf7;
+  --white: #ffffff;
+  --slate: #4a5568;
+  --slate-light: #718096;
+  --border: #e8e8e8;
+  --shadow-sm: 0 2px 8px rgba(0,32,91,0.08);
+  --shadow-md: 0 8px 30px rgba(0,32,91,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,32,91,0.15);
+  --radius: 12px;
+  --radius-lg: 20px;
+  --green: #25D366;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--ivory);
+  color: var(--slate);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Playfair Display', serif;
+  color: var(--navy);
+}
+
+/* ============================
+   UTILITY
+   ============================ */
+.container { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 80px 0; }
+.section-alt { background: var(--white); }
+
+.badge {
+  display: inline-block;
+  background: var(--gold-pale);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--gold-light);
+  margin-bottom: 12px;
+}
+
+.section-header { text-align: center; margin-bottom: 52px; }
+.section-header h2 { font-size: 2.4rem; margin-bottom: 12px; }
+.section-header p { color: var(--slate-light); max-width: 560px; margin: 0 auto; font-size: 1rem; }
+.gold-rule {
+  width: 48px; height: 3px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-light));
+  margin: 14px auto 16px;
+  border-radius: 2px;
+}
+
+/* ============================
+   HEADER & NAV
+   ============================ */
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  position: sticky; top: 0; z-index: 999;
+  box-shadow: var(--shadow-sm);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 24px;
+  max-width: 1160px;
+  margin: 0 auto;
+  gap: 16px;
+}
+
+.logo-area {
+  display: flex; align-items: center; gap: 14px;
+  text-decoration: none;
+}
+
+.logo-crest {
+  width: 52px; height: 52px;
+  background: var(--navy);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid var(--gold);
+  flex-shrink: 0;
+}
+.logo-crest span {
+  font-family: 'Playfair Display', serif;
+  color: var(--gold);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.logo-text-block h1 {
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+}
+.logo-text-block small {
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: var(--gold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--slate);
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.nav-links a:hover { background: var(--gold-pale); color: var(--navy); }
+
+.nav-cta {
+  background: var(--navy) !important;
+  color: var(--white) !important;
+  font-weight: 600 !important;
+  padding: 9px 18px !important;
+}
+.nav-cta:hover { background: var(--gold) !important; color: var(--navy) !important; }
+
+.nav-admin {
+  background: var(--gold-pale) !important;
+  color: var(--gold) !important;
+  border: 1px solid var(--gold-light) !important;
+  font-weight: 600 !important;
+  cursor: pointer;
+}
+.nav-admin:hover { background: var(--gold) !important; color: var(--white) !important; }
+
+/* ============================
+   HERO
+   ============================ */
+.hero {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: var(--navy-deep);
+}
+
+.hero-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920') center/cover;
+  opacity: 0.18;
+}
+
+/* Architectural diagonal stripe — the signature element */
+.hero-stripe {
+  position: absolute;
+  top: 0; right: 0;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(135deg, transparent 30%, rgba(201,162,39,0.07) 100%);
+  border-left: 2px solid rgba(201,162,39,0.25);
+  clip-path: polygon(15% 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.hero-content {
+  position: relative; z-index: 2;
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 80px 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-left {}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--gold);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px; height: 2px;
+  background: var(--gold);
+}
+
+.hero h2 {
+  font-size: clamp(2.4rem, 4vw, 3.6rem);
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+.hero h2 em {
+  font-style: normal;
+  color: var(--gold);
+}
+
+.hero-desc {
+  color: rgba(255,255,255,0.72);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 36px;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--navy);
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s;
+}
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(201,162,39,0.35);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  padding: 13px 30px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  border: 1.5px solid rgba(255,255,255,0.35);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.25s;
+}
+.btn-outline:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.1);
+}
+.stat-item {
+  padding: 24px 16px;
+  background: rgba(0,21,64,0.6);
+  backdrop-filter: blur(10px);
+  text-align: center;
+}
+.stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--gold);
+  line-height: 1;
+}
+.stat-label {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-top: 4px;
+}
+
+/* ============================
+   PROGRAMS
+   ============================ */
+.programs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.program-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+}
+.program-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--gold-light);
+}
+
+.program-top {
+  background: linear-gradient(135deg, var(--navy) 0%, var(--navy-deep) 100%);
+  padding: 28px 24px 20px;
+  position: relative;
+  overflow: hidden;
+}
+.program-top::after {
+  content: '';
+  position: absolute;
+  bottom: -20px; right: -20px;
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.12);
+}
+
+.program-icon {
+  width: 52px; height: 52px;
+  background: rgba(201,162,39,0.15);
+  border: 1.5px solid rgba(201,162,39,0.4);
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 14px;
+}
+.program-icon i { color: var(--gold); font-size: 1.4rem; }
+
+.program-top h3 { color: var(--white); font-size: 1.15rem; }
+
+.program-body { padding: 20px 24px 24px; }
+.program-body p { color: var(--slate-light); font-size: 0.9rem; line-height: 1.6; margin-bottom: 16px; }
+
+.program-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.meta-tag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 3px 10px;
+  background: var(--gold-pale);
+  color: var(--gold);
+  border-radius: 50px;
+  border: 1px solid var(--gold-light);
+}
+
+/* ============================
+   GALLERY
+   ============================ */
+.gallery-controls {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
+}
+.filter-btn {
+  padding: 7px 18px;
+  border-radius: 50px;
+  border: 1.5px solid var(--border);
+  background: var(--white);
+  color: var(--slate);
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.filter-btn.active, .filter-btn:hover {
+  background: var(--navy);
+  color: var(--white);
+  border-color: var(--navy);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 18px;
+}
+
+.gallery-item {
+  position: relative;
+  border-radius: var(--radius);
+  overflow: hidden;
+  aspect-ratio: 4/3;
+  background: var(--border);
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+}
+.gallery-item img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.gallery-item:hover img { transform: scale(1.08); }
+
+.gallery-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,21,64,0.85), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+  display: flex; align-items: flex-end;
+  padding: 16px;
+}
+.gallery-item:hover .gallery-overlay { opacity: 1; }
+.gallery-overlay span {
+  color: var(--white);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.gallery-placeholder {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--slate-light);
+  font-size: 0.95rem;
+}
+.gallery-placeholder i { font-size: 2.5rem; color: var(--border); display: block; margin-bottom: 12px; }
+
+/* ============================
+   NEWS / ANNOUNCEMENTS
+   ============================ */
+.news-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 24px;
+}
+
+.news-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.news-card:hover { box-shadow: var(--shadow-md); }
+
+.news-card-top {
+  background: linear-gradient(90deg, var(--navy), #0a3580);
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.news-card-top .news-date {
+  background: var(--gold);
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 50px;
+}
+.news-card-top .news-cat {
+  color: rgba(255,255,255,0.7);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.news-card-body { padding: 20px; }
+.news-card-body h3 { font-size: 1rem; color: var(--navy); margin-bottom: 8px; }
+.news-card-body p { color: var(--slate-light); font-size: 0.88rem; line-height: 1.6; }
+
+/* ============================
+   CAREERS
+   ============================ */
+.careers-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+.careers-intro-text h3 { font-size: 1.7rem; margin-bottom: 14px; }
+.careers-intro-text p { color: var(--slate-light); line-height: 1.7; margin-bottom: 20px; }
+
+.careers-perks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.perk-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--slate);
+  font-weight: 500;
+}
+.perk-item i { color: var(--gold); width: 18px; }
+
+.job-listings { display: flex; flex-direction: column; gap: 18px; }
+
+.job-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 16px;
+  align-items: center;
+  transition: all 0.25s;
+  box-shadow: var(--shadow-sm);
+}
+.job-card:hover {
+  border-color: var(--gold-light);
+  box-shadow: var(--shadow-md);
+  transform: translateX(4px);
+}
+
+.job-card-left h3 { font-size: 1.05rem; margin-bottom: 6px; }
+.job-meta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+.job-tag {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.78rem;
+  color: var(--slate-light);
+}
+.job-tag i { color: var(--gold); font-size: 0.72rem; }
+
+.job-deadline {
+  font-size: 0.75rem;
+  color: #e53e3e;
+  font-weight: 600;
+  margin-top: 6px;
+}
+
+.apply-btn {
+  background: var(--navy);
+  color: var(--white);
+  padding: 10px 22px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+.apply-btn:hover { background: var(--gold); color: var(--navy); }
+
+/* ============================
+   APPLICATION FORM MODAL
+   ============================ */
+.modal-overlay {
+  position: fixed; inset: 0;
+  background: rgba(0,21,64,0.75);
+  backdrop-filter: blur(6px);
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.modal-overlay.open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.modal {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  max-width: 640px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-lg);
+  transform: translateY(20px);
+  transition: transform 0.3s;
+}
+.modal-overlay.open .modal { transform: translateY(0); }
+
+.modal-head {
+  background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+  padding: 28px 28px 24px;
+  position: relative;
+}
+.modal-head h3 {
+  color: var(--white);
+  font-size: 1.3rem;
+  margin-bottom: 4px;
+}
+.modal-head p { color: rgba(255,255,255,0.65); font-size: 0.88rem; }
+.modal-head .job-applied {
+  background: var(--gold-pale);
+  color: var(--gold);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid var(--gold-light);
+  margin-top: 10px;
+  display: inline-block;
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: var(--white);
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: background 0.2s;
+}
+.modal-close:hover { background: rgba(255,255,255,0.25); }
+
+.modal-body { padding: 28px; }
+
+/* ============================
+   FORM ELEMENTS (shared)
+   ============================ */
+.form-group { margin-bottom: 18px; }
+.form-group label {
+  display: block;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--navy);
+  margin-bottom: 6px;
+}
+.form-group label span { color: #e53e3e; }
+
+.form-control {
+  width: 100%;
+  padding: 11px 14px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.92rem;
+  color: var(--slate);
+  background: var(--ivory);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(201,162,39,0.15);
+  background: var(--white);
+}
+
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+textarea.form-control { resize: vertical; min-height: 90px; }
+
+select.form-control { appearance: none; cursor: pointer; }
+
+.file-input-wrap {
+  border: 2px dashed var(--border);
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: var(--ivory);
+}
+.file-input-wrap:hover { border-color: var(--gold); background: var(--gold-pale); }
+.file-input-wrap input { display: none; }
+.file-input-wrap i { font-size: 1.8rem; color: var(--gold); display: block; margin-bottom: 8px; }
+.file-input-wrap p { font-size: 0.85rem; color: var(--slate-light); }
+.file-input-wrap strong { color: var(--navy); }
+.file-name { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-top: 6px; }
+
+.form-footer { margin-top: 24px; }
+.form-footer .note {
+  font-size: 0.78rem;
+  color: var(--slate-light);
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.form-footer .note i { color: var(--green); margin-top: 2px; }
+
+/* ============================
+   CONTACT
+   ============================ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 40px;
+}
+
+.contact-card {
+  background: linear-gradient(160deg, var(--navy) 0%, var(--navy-deep) 100%);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+.contact-card::before {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 160px; height: 160px;
+  border-radius: 50%;
+  background: rgba(201,162,39,0.08);
+  border: 40px solid rgba(201,162,39,0.05);
+}
+
+.contact-card h3 { color: var(--white); margin-bottom: 6px; }
+.contact-card > p { color: rgba(255,255,255,0.65); font-size: 0.9rem; margin-bottom: 28px; }
+
+.contact-detail {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 18px;
+  align-items: flex-start;
+}
+.contact-detail-icon {
+  width: 38px; height: 38px;
+  background: rgba(201,162,39,0.15);
+  border: 1px solid rgba(201,162,39,0.3);
+  border-radius: 9px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.contact-detail-icon i { color: var(--gold); font-size: 0.9rem; }
+.contact-detail-text p { font-size: 0.78rem; color: rgba(255,255,255,0.5); }
+.contact-detail-text strong { color: var(--white); font-size: 0.92rem; }
+
+.quick-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+
+.qa-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.qa-wa { background: var(--green); color: var(--white); }
+.qa-call { background: rgba(255,255,255,0.12); color: var(--white); border: 1px solid rgba(255,255,255,0.2); }
+.qa-sms { background: var(--gold); color: var(--navy); }
+.qa-btn:hover { transform: scale(1.04); opacity: 0.9; }
+
+.inquiry-form {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 36px;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+}
+.inquiry-form h3 { margin-bottom: 4px; }
+.inquiry-form > p { color: var(--slate-light); font-size: 0.88rem; margin-bottom: 24px; }
+
+/* ============================
+   ADMIN PANEL
+   ============================ */
+.admin-panel {
+  display: none;
+  background: var(--white);
+  border: 2px solid var(--gold-light);
+  border-radius: var(--radius-lg);
+  max-width: 860px;
+  margin: 0 auto 40px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.admin-panel-head {
+  background: linear-gradient(90deg, var(--navy), #0a3580);
+  padding: 20px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.admin-panel-head h3 { color: var(--white); font-size: 1.1rem; }
+.admin-panel-head span { color: rgba(255,255,255,0.6); font-size: 0.82rem; }
+
+.admin-tabs {
+  display: flex;
+  border-bottom: 1px solid var(--border);
+  background: var(--ivory);
+}
+.admin-tab {
+  padding: 12px 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--slate);
+  cursor: pointer;
+  border: none;
+  background: none;
+  border-bottom: 3px solid transparent;
+  transition: all 0.2s;
+}
+.admin-tab.active {
+  color: var(--navy);
+  border-bottom-color: var(--gold);
+  background: var(--white);
+}
+
+.admin-tab-content { padding: 28px; }
+.admin-tab-pane { display: none; }
+.admin-tab-pane.active { display: block; }
+
+.upload-zone {
+  border: 2px dashed var(--gold-light);
+  border-radius: var(--radius);
+  padding: 40px;
+  text-align: center;
+  background: var(--gold-pale);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.upload-zone:hover { border-color: var(--gold); }
+.upload-zone i { font-size: 2.5rem; color: var(--gold); display: block; margin-bottom: 12px; }
+.upload-zone h4 { color: var(--navy); margin-bottom: 6px; }
+.upload-zone p { color: var(--slate-light); font-size: 0.85rem; }
+.upload-zone input { display: none; }
+
+.admin-post-form { }
+.admin-post-form .form-row { margin-bottom: 16px; }
+
+.post-status {
+  padding: 12px 16px;
+  border-radius: 8px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  margin-top: 12px;
+  display: none;
+}
+.post-status.success { background: #f0fff4; color: #276749; border: 1px solid #9ae6b4; }
+.post-status.error { background: #fff5f5; color: #9b2c2c; border: 1px solid #feb2b2; }
+.post-status.loading { background: var(--gold-pale); color: var(--gold); border: 1px solid var(--gold-light); }
+
+/* ============================
+   LIGHTBOX
+   ============================ */
+.lightbox {
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92);
+  z-index: 9999;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.lightbox.open { display: flex; }
+.lightbox img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+  object-fit: contain;
+}
+.lightbox-close {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: rgba(255,255,255,0.12);
+  border: none;
+  color: var(--white);
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  font-size: 1.3rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* ============================
+   FOOTER
+   ============================ */
+footer {
+  background: var(--navy-deep);
+  color: rgba(255,255,255,0.7);
+  padding: 48px 0 32px;
+  margin-top: 80px;
+}
+
+.footer-inner {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 40px;
+}
+
+.footer-brand {}
+.footer-brand .brand-name {
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  font-size: 1.15rem;
+  margin-bottom: 4px;
+}
+.footer-brand .brand-motto {
+  color: var(--gold);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.footer-brand p { font-size: 0.88rem; line-height: 1.7; }
+
+.footer-col h4 {
+  color: var(--white);
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.6);
+  text-decoration: none;
+  font-size: 0.88rem;
+  margin-bottom: 8px;
+  transition: color 0.2s;
+}
+.footer-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 20px 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.footer-bottom p { font-size: 0.82rem; }
+.footer-bottom .gold { color: var(--gold); font-weight: 600; }
+
+/* ============================
+   CODING ACADEMY
+   ============================ */
+.coding-hero {
+  background: linear-gradient(135deg, #0d1117 0%, #161b22 60%, #0d2137 100%);
+  border-radius: var(--radius-lg);
+  padding: 56px 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+  margin-bottom: 60px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #30363d;
+}
+.coding-hero::before {
+  content: '';
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 220px; height: 220px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(88,166,255,0.08) 0%, transparent 70%);
+}
+
+.coding-hero-text .badge-code {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(88,166,255,0.1);
+  color: #58a6ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 50px;
+  border: 1px solid rgba(88,166,255,0.25);
+  margin-bottom: 16px;
+}
+
+.coding-hero-text h3 {
+  font-size: 2rem;
+  color: #e6edf3;
+  line-height: 1.2;
+  margin-bottom: 14px;
+}
+.coding-hero-text h3 span { color: #58a6ff; }
+
+.coding-hero-text p {
+  color: #8b949e;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.coding-hero-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 28px;
+}
+.code-pill {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid #30363d;
+  color: #8b949e;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 12px;
+  border-radius: 50px;
+  font-family: 'Courier New', monospace;
+}
+.code-pill.hl { color: #58a6ff; border-color: rgba(88,166,255,0.3); background: rgba(88,166,255,0.06); }
+
+/* Animated Code Window */
+.code-window {
+  background: #0d1117;
+  border-radius: 12px;
+  border: 1px solid #30363d;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+}
+.code-window-bar {
+  background: #161b22;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid #30363d;
+}
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.dot-r { background: #ff5f56; }
+.dot-y { background: #ffbd2e; }
+.dot-g { background: #27c93f; }
+.code-file { color: #8b949e; font-size: 0.75rem; margin-left: 8px; font-family: monospace; }
+
+.code-body {
+  padding: 20px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.82rem;
+  line-height: 1.8;
+  min-height: 200px;
+}
+.code-line { display: flex; gap: 16px; }
+.ln { color: #30363d; user-select: none; min-width: 16px; text-align: right; }
+.kw { color: #ff7b72; } /* keyword */
+.fn { color: #d2a8ff; } /* function */
+.st { color: #a5d6ff; } /* string */
+.cm { color: #8b949e; font-style: italic; } /* comment */
+.nm { color: #79c0ff; } /* name/class */
+.op { color: #e6edf3; } /* operator */
+.cursor {
+  display: inline-block;
+  width: 2px; height: 1em;
+  background: #58a6ff;
+  animation: blink 1s infinite;
+  vertical-align: middle;
+  margin-left: 2px;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+/* Courses Grid */
+.coding-courses {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 22px;
+  margin-bottom: 52px;
+}
+
+.course-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: all 0.3s;
+  box-shadow: var(--shadow-sm);
+  position: relative;
+}
+.course-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-md);
+  border-color: #58a6ff44;
+}
+
+.course-card-top {
+  padding: 22px 22px 16px;
+  background: #0d1117;
+  border-bottom: 1px solid #30363d;
+}
+.course-lang-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(88,166,255,0.1);
+  border: 1px solid rgba(88,166,255,0.25);
+  color: #58a6ff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 50px;
+  font-family: monospace;
+  margin-bottom: 10px;
+}
+.course-card-top h3 { color: #e6edf3; font-size: 1rem; margin-bottom: 6px; }
+.course-card-top p { color: #8b949e; font-size: 0.82rem; line-height: 1.5; }
+
+.course-card-body { padding: 18px 22px 22px; }
+
+.course-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+.skill-tag {
+  background: var(--gold-pale);
+  color: var(--gold);
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 2px 9px;
+  border-radius: 50px;
+  border: 1px solid var(--gold-light);
+  font-family: monospace;
+}
+
+.course-meta-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: var(--slate-light);
+  border-top: 1px solid var(--border);
+  padding-top: 14px;
+  margin-top: 6px;
+}
+.course-meta-row span { display: flex; align-items: center; gap: 5px; }
+.course-meta-row i { color: var(--gold); }
+.enroll-link {
+  background: var(--navy);
+  color: var(--white);
+  padding: 6px 16px;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+.enroll-link:hover { background: var(--gold); color: var(--navy); }
+
+/* Why Coding Banner */
+.coding-why {
+  background: linear-gradient(90deg, var(--navy) 0%, #0a3580 100%);
+  border-radius: var(--radius-lg);
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.coding-why-icon {
+  font-size: 3rem;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+.coding-why-text h3 { color: var(--white); margin-bottom: 8px; }
+.coding-why-text p { color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.7; }
+.coding-why-stats {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.why-stat { text-align: center; }
+.why-stat-num {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.8rem;
+  color: var(--gold);
+  font-weight: 900;
+  line-height: 1;
+}
+.why-stat-label { color: rgba(255,255,255,0.6); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+
+@media(max-width:900px) {
+  .coding-hero { grid-template-columns: 1fr; padding: 32px 24px; }
+  .coding-why { padding: 28px 24px; flex-direction: column; gap: 20px; }
+  .coding-why-stats { margin-left: 0; }
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 900px) {
+  .hero-content { grid-template-columns: 1fr; gap: 40px; }
+  .hero-stats { display: none; }
+  .careers-intro { grid-template-columns: 1fr; gap: 28px; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .footer-inner { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 640px) {
+  .navbar { flex-direction: column; align-items: flex-start; gap: 12px; }
+  .nav-links { gap: 2px; }
+  .nav-links a { padding: 7px 10px; font-size: 0.82rem; }
+  .hero h2 { font-size: 2rem; }
+  .section { padding: 56px 0; }
+  .footer-inner { grid-template-columns: 1fr; gap: 28px; }
+  .job-card { grid-template-columns: 1fr; }
+  .modal-body { padding: 20px; }
+  .modal-head { padding: 22px 20px 18px; }
+}
+</style>
+</head>
+<body>
+
+<!-- =========================================
+     HEADER
+     ========================================= -->
+<header>
+  <div class="navbar">
+    <a href="#home" class="logo-area">
+      <div class="logo-crest"><span>RG</span></div>
+      <div class="logo-text-block">
+        <h1>The Royal Grammar School</h1>
+        <small>& Academy, Khairpur</small>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#news">News</a>
+      <a href="#coding">Coding</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+      <a href="javascript:void(0);" onclick="adminLogin()" class="nav-admin">
+        <i class="fas fa-lock" style="font-size:0.75rem;"></i> Admin
+      </a>
+      <a href="#contact" class="nav-cta">Enroll Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- =========================================
+     ADMIN PANEL
+     ========================================= -->
+<div id="adminPanel" class="admin-panel">
+  <div class="admin-panel-head">
+    <h3><i class="fas fa-shield-alt" style="color:var(--gold);margin-right:8px;"></i>Admin Dashboard</h3>
+    <span>Royal Grammar School — Content Management</span>
+  </div>
+  <div class="admin-tabs">
+    <button class="admin-tab active" onclick="switchTab('gallery-tab', this)">
+      <i class="fas fa-images"></i> Gallery Upload
+    </button>
+    <button class="admin-tab" onclick="switchTab('news-tab', this)">
+      <i class="fas fa-newspaper"></i> Post Announcement
+    </button>
+    <button class="admin-tab" onclick="switchTab('job-tab', this)">
+      <i class="fas fa-briefcase"></i> Post Job Vacancy
+    </button>
+    <button class="admin-tab" onclick="switchTab('applications-tab', this)">
+      <i class="fas fa-file-alt"></i> View Applications
+    </button>
+  </div>
+  <div class="admin-tab-content">
+
+    <!-- Gallery Upload Tab -->
+    <div id="gallery-tab" class="admin-tab-pane active">
+      <label class="upload-zone" for="galleryFileInput">
+        <i class="fas fa-cloud-upload-alt"></i>
+        <h4>Click to upload images</h4>
+        <p>PNG, JPG, WEBP — Max 10MB each. Gallery updates instantly for all visitors.</p>
+        <input type="file" id="galleryFileInput" accept="image/*" multiple>
+      </label>
+      <div id="uploadPreviewArea" style="margin-top:16px;display:flex;flex-wrap:wrap;gap:10px;"></div>
+      <div id="uploadStatusMsg" class="post-status"></div>
+      <button class="btn-primary" onclick="uploadGalleryImages()" style="margin-top:16px;font-size:0.88rem;padding:10px 24px;">
+        <i class="fas fa-upload"></i> Upload Selected Images
+      </button>
+    </div>
+
+    <!-- News Tab -->
+    <div id="news-tab" class="admin-tab-pane">
+      <div class="admin-post-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Announcement Title <span>*</span></label>
+            <input type="text" id="newsTitleInput" class="form-control" placeholder="e.g. Annual Sports Day 2026">
+          </div>
+          <div class="form-group">
+            <label>Category <span>*</span></label>
+            <select id="newsCatInput" class="form-control">
+              <option value="Announcement">Announcement</option>
+              <option value="Event">Event</option>
+              <option value="Achievement">Achievement</option>
+              <option value="Notice">Notice</option>
+              <option value="Workshop">Workshop</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Description <span>*</span></label>
+          <textarea id="newsDescInput" class="form-control" placeholder="Write the full announcement here..."></textarea>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Event Date (if applicable)</label>
+            <input type="date" id="newsDateInput" class="form-control">
+          </div>
+          <div class="form-group">
+            <label>Priority</label>
+            <select id="newsPriorityInput" class="form-control">
+              <option value="Normal">Normal</option>
+              <option value="Important">Important</option>
+              <option value="Urgent">Urgent</option>
+            </select>
+          </div>
+        </div>
+        <div id="newsStatusMsg" class="post-status"></div>
+        <button class="btn-primary" onclick="postAnnouncement()" style="font-size:0.88rem;padding:10px 24px;">
+          <i class="fas fa-paper-plane"></i> Publish Announcement
+        </button>
+      </div>
+    </div>
+
+    <!-- Job Tab -->
+    <div id="job-tab" class="admin-tab-pane">
+      <div class="admin-post-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label>Job Title <span>*</span></label>
+            <input type="text" id="jobTitleInput" class="form-control" placeholder="e.g. English Language Teacher">
+          </div>
+          <div class="form-group">
+            <label>Department</label>
+            <select id="jobDeptInput" class="form-control">
+              <option>Primary School</option>
+              <option>Secondary School</option>
+              <option>English Academy</option>
+              <option>Library</option>
+              <option>Administration</option>
+              <option>Support Staff</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Job Type</label>
+            <select id="jobTypeInput" class="form-control">
+              <option>Full-time</option>
+              <option>Part-time</option>
+              <option>Contract</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Application Deadline <span>*</span></label>
+            <input type="date" id="jobDeadlineInput" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Job Description & Requirements <span>*</span></label>
+          <textarea id="jobDescInput" class="form-control" style="min-height:120px;" placeholder="Describe the role, responsibilities, qualifications required..."></textarea>
+        </div>
+        <div id="jobStatusMsg" class="post-status"></div>
+        <button class="btn-primary" onclick="postJob()" style="font-size:0.88rem;padding:10px 24px;">
+          <i class="fas fa-briefcase"></i> Post Job Vacancy
+        </button>
+      </div>
+    </div>
+
+    <!-- Applications Tab -->
+    <div id="applications-tab" class="admin-tab-pane">
+      <p style="color:var(--slate-light);font-size:0.9rem;margin-bottom:20px;">
+        <i class="fab fa-whatsapp" style="color:var(--green);"></i>
+        All applications are forwarded to WhatsApp automatically. Below is a summary from this session.
+      </p>
+      <div id="applicationsList">
+        <div class="gallery-placeholder" style="padding:30px 0;">
+          <i class="fas fa-inbox"></i>
+          <p>No applications received this session.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =========================================
+     HERO
+     ========================================= -->
+<section id="home" class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Khairpur's Premier Institution</div>
+      <h2>Building <em>Character,</em> Excellence & Future Leaders</h2>
+      <p class="hero-desc">
+        From Playgroup to Intermediate — we cultivate knowledge, values, and confidence in every student. Join a community dedicated to academic excellence and holistic development.
+      </p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">
+          <i class="fas fa-user-plus"></i> Enroll Now
+        </a>
+        <a href="#programs" class="btn-outline">
+          <i class="fas fa-book-open"></i> Our Programs
+        </a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="stat-item">
+          <div class="stat-num">15+</div>
+          <div class="stat-label">Years of Excellence</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">1200+</div>
+          <div class="stat-label">Students Enrolled</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-num">60+</div>
+          <div class="stat-label">Qualified Faculty</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     PROGRAMS
+     ========================================= -->
+<section id="programs" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">What We Offer</div>
+      <h2>Our Programs</h2>
+      <div class="gold-rule"></div>
+      <p>Comprehensive education from early childhood through advanced academics — all under one institution.</p>
+    </div>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-language"></i></div>
+          <h3>English Academy</h3>
+        </div>
+        <div class="program-body">
+          <p>A structured 3-month course covering Grammar, Vocabulary, Spoken English, and Confidence Building — designed for all ages and proficiency levels.</p>
+          <div class="program-meta">
+            <span class="meta-tag">3 Months</span>
+            <span class="meta-tag">5:00 PM – 7:00 PM</span>
+            <span class="meta-tag">All Levels</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>School Admissions</h3>
+        </div>
+        <div class="program-body">
+          <p>Enroll from Playgroup to KG-II and KG through Intermediate. Cambridge-trained faculty, digital classrooms, and a nurturing learning environment.</p>
+          <div class="program-meta">
+            <span class="meta-tag">PG to Intermediate</span>
+            <span class="meta-tag">Cambridge Faculty</span>
+            <span class="meta-tag">Digital Classes</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+          <h3>Tuition Centre</h3>
+        </div>
+        <div class="program-body">
+          <p>Dedicated subject-specific tutoring sessions for students needing extra academic support, led by experienced and patient instructors.</p>
+          <div class="program-meta">
+            <span class="meta-tag">All Subjects</span>
+            <span class="meta-tag">Small Groups</span>
+            <span class="meta-tag">Evening Batches</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Off-Campus Library</h3>
+        </div>
+        <div class="program-body">
+          <p>A peaceful, 24/7 study space with solar backup power, fast Wi-Fi, and an extensive collection of academic and reference materials.</p>
+          <div class="program-meta">
+            <span class="meta-tag">24/7 Open</span>
+            <span class="meta-tag">Fast Wi-Fi</span>
+            <span class="meta-tag">Solar Backup</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-trophy"></i></div>
+          <h3>Co-curricular Activities</h3>
+        </div>
+        <div class="program-body">
+          <p>Sports, debates, science fairs, arts, and competitions foster all-round development beyond the classroom — nurturing confident, creative leaders.</p>
+          <div class="program-meta">
+            <span class="meta-tag">Sports</span>
+            <span class="meta-tag">Debates</span>
+            <span class="meta-tag">Science Fairs</span>
+          </div>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-mosque"></i></div>
+          <h3>Islamic Studies & Ethics</h3>
+        </div>
+        <div class="program-body">
+          <p>Rooted in values — our Islamic Studies curriculum instills moral character, Quran recitation, and ethical life principles alongside academics.</p>
+          <div class="program-meta">
+            <span class="meta-tag">Quran</span>
+            <span class="meta-tag">Moral Values</span>
+            <span class="meta-tag">All Classes</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     GALLERY
+     ========================================= -->
+<section id="gallery" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">School Life</div>
+      <h2>Activities & Events</h2>
+      <div class="gold-rule"></div>
+      <p>A glimpse into the vibrant student life, events, and achievements at The Royal Grammar School.</p>
+    </div>
+    <div class="gallery-controls">
+      <button class="filter-btn active">All</button>
+      <button class="filter-btn">Events</button>
+      <button class="filter-btn">Sports</button>
+      <button class="filter-btn">Academics</button>
+      <button class="filter-btn">Achievements</button>
+    </div>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="gallery-placeholder">
+        <i class="fas fa-images"></i>
+        <p>Gallery images will appear here once uploaded by the admin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     NEWS & ANNOUNCEMENTS
+     ========================================= -->
+<section id="news" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Latest Updates</div>
+      <h2>News & Announcements</h2>
+      <div class="gold-rule"></div>
+      <p>Stay updated with the latest events, notices, and achievements from our school community.</p>
+    </div>
+    <div class="news-grid" id="newsGrid">
+      <!-- Default sample announcements -->
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-date">Jun 2026</span>
+          <span class="news-cat">Announcement</span>
+        </div>
+        <div class="news-card-body">
+          <h3>Admissions Open for Academic Year 2026-27</h3>
+          <p>We are pleased to announce that admissions for the new academic year are now open. Limited seats available across all classes.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-date">May 2026</span>
+          <span class="news-cat">Achievement</span>
+        </div>
+        <div class="news-card-body">
+          <h3>Students Excel in Board Examinations</h3>
+          <p>Congratulations to our Class X students who achieved outstanding results in the Sindh Board examinations with 8 students scoring A+ grades.</p>
+        </div>
+      </div>
+      <div class="news-card">
+        <div class="news-card-top">
+          <span class="news-date">May 2026</span>
+          <span class="news-cat">Event</span>
+        </div>
+        <div class="news-card-body">
+          <h3>Annual Sports Day — Registrations Open</h3>
+          <p>Annual Sports Day is scheduled for July 15, 2026. Students may register for athletics, cricket, and indoor games through their class teachers.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     CODING ACADEMY
+     ========================================= -->
+<section id="coding" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">New Program 2026</div>
+      <h2>Coding Academy</h2>
+      <div class="gold-rule"></div>
+      <p>Learn to code and build the future. Our hands-on coding programs take students from zero to real-world projects.</p>
+    </div>
+
+    <!-- Dark hero panel with animated code -->
+    <div class="coding-hero">
+      <div class="coding-hero-text">
+        <div class="badge-code"><i class="fas fa-terminal"></i> Now Enrolling</div>
+        <h3>Learn to <span>Code,</span><br>Build, & Create</h3>
+        <p>From block-based programming for beginners to full web development for advanced learners — our certified instructors teach practical skills used by real software engineers.</p>
+        <div class="coding-hero-pills">
+          <span class="code-pill hl">Python</span>
+          <span class="code-pill hl">HTML & CSS</span>
+          <span class="code-pill hl">JavaScript</span>
+          <span class="code-pill">C++</span>
+          <span class="code-pill">Scratch</span>
+          <span class="code-pill">AI Basics</span>
+        </div>
+        <a href="#contact" class="btn-primary" style="font-size:0.92rem;padding:12px 28px;">
+          <i class="fas fa-rocket"></i> Enroll in Coding
+        </a>
+      </div>
+
+      <!-- Animated code window -->
+      <div class="code-window" id="codeWindow">
+        <div class="code-window-bar">
+          <span class="dot dot-r"></span>
+          <span class="dot dot-y"></span>
+          <span class="dot dot-g"></span>
+          <span class="code-file">royal_school.py</span>
+        </div>
+        <div class="code-body" id="codeDisplay"></div>
+      </div>
+    </div>
+
+    <!-- Course Cards -->
+    <div class="section-header" style="margin-bottom:32px;">
+      <h3 style="font-size:1.6rem;color:var(--navy);">Available Courses</h3>
+      <div class="gold-rule"></div>
+    </div>
+
+    <div class="coding-courses">
+
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-lang-badge"><i class="fab fa-python"></i> Python</div>
+          <h3>Python for Beginners</h3>
+          <p>Start your coding journey with the world's most beginner-friendly language. Build games, calculators, and automation scripts.</p>
+        </div>
+        <div class="course-card-body">
+          <div class="course-skills">
+            <span class="skill-tag">Variables</span>
+            <span class="skill-tag">Loops</span>
+            <span class="skill-tag">Functions</span>
+            <span class="skill-tag">Projects</span>
+          </div>
+          <div class="course-meta-row">
+            <span><i class="fas fa-clock"></i> 3 Months</span>
+            <span><i class="fas fa-users"></i> Age 12+</span>
+            <a href="#contact" class="enroll-link">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-lang-badge"><i class="fab fa-html5"></i> Web Dev</div>
+          <h3>Web Design & Development</h3>
+          <p>Create beautiful websites from scratch. Learn HTML, CSS, and JavaScript to build real projects you can share with the world.</p>
+        </div>
+        <div class="course-card-body">
+          <div class="course-skills">
+            <span class="skill-tag">HTML5</span>
+            <span class="skill-tag">CSS3</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Responsive</span>
+          </div>
+          <div class="course-meta-row">
+            <span><i class="fas fa-clock"></i> 4 Months</span>
+            <span><i class="fas fa-users"></i> Age 14+</span>
+            <a href="#contact" class="enroll-link">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-lang-badge" style="color:#e535ab;border-color:rgba(229,53,171,0.3);background:rgba(229,53,171,0.07);">
+            <i class="fas fa-gamepad"></i> Scratch
+          </div>
+          <h3>Scratch for Kids</h3>
+          <p>A fun, drag-and-drop introduction to programming for young learners. Build animated stories, games, and interactive projects.</p>
+        </div>
+        <div class="course-card-body">
+          <div class="course-skills">
+            <span class="skill-tag">Animations</span>
+            <span class="skill-tag">Games</span>
+            <span class="skill-tag">Logic</span>
+            <span class="skill-tag">Creativity</span>
+          </div>
+          <div class="course-meta-row">
+            <span><i class="fas fa-clock"></i> 2 Months</span>
+            <span><i class="fas fa-users"></i> Age 8–13</span>
+            <a href="#contact" class="enroll-link">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-lang-badge" style="color:#f7df1e;border-color:rgba(247,223,30,0.3);background:rgba(247,223,30,0.05);">
+            <i class="fab fa-js"></i> JavaScript
+          </div>
+          <h3>JavaScript & DOM</h3>
+          <p>Take your web skills further. Make websites interactive with JavaScript, handle events, and build dynamic user interfaces.</p>
+        </div>
+        <div class="course-card-body">
+          <div class="course-skills">
+            <span class="skill-tag">ES6+</span>
+            <span class="skill-tag">DOM APIs</span>
+            <span class="skill-tag">Events</span>
+            <span class="skill-tag">Projects</span>
+          </div>
+          <div class="course-meta-row">
+            <span><i class="fas fa-clock"></i> 3 Months</span>
+            <span><i class="fas fa-users"></i> Age 15+</span>
+            <a href="#contact" class="enroll-link">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="course-card">
+        <div class="course-card-top">
+          <div class="course-lang-badge" style="color:#a371f7;border-color:rgba(163,113,247,0.3);background:rgba(163,113,247,0.07);">
+            <i class="fas fa-brain"></i> AI
+          </div>
+          <h3>AI & Technology Basics</h3>
+          <p>Understand how Artificial Intelligence works. Learn to use AI tools, prompt engineering, and explore the future of technology.</p>
+        </div>
+        <div class="course-card-body">
+          <div class="course-skills">
+            <span class="skill-tag">AI Tools</span>
+            <span class="skill-tag">Prompting</span>
+            <span class="skill-tag">ChatGPT</span>
+            <span class="skill-tag">Ethics</span>
+          </div>
+          <div class="course-meta-row">
+            <span><i class="fas fa-clock"></i> 6 Weeks</span>
+            <span><i class="fas fa-users"></i> Age 14+</span>
+            <a href="#contact" class="enroll-link">Enroll</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Why Learn Coding Banner -->
+    <div class="coding-why">
+      <div class="coding-why-icon"><i class="fas fa-code"></i></div>
+      <div class="coding-why-text">
+        <h3>Why Learn Coding at The Royal?</h3>
+        <p>Our Coding Academy is equipped with computers, high-speed internet, and expert instructors. Students build real projects, earn certificates, and develop problem-solving skills that last a lifetime.</p>
+      </div>
+      <div class="coding-why-stats">
+        <div class="why-stat">
+          <div class="why-stat-num">6</div>
+          <div class="why-stat-label">Courses</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">100%</div>
+          <div class="why-stat-label">Hands-on</div>
+        </div>
+        <div class="why-stat">
+          <div class="why-stat-num">Cert.</div>
+          <div class="why-stat-label">On Completion</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- =========================================
+     CAREERS
+     ========================================= -->
+<section id="careers" class="section">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Join Our Team</div>
+      <h2>Career Opportunities</h2>
+      <div class="gold-rule"></div>
+      <p>We seek dedicated, passionate educators and staff to help shape the next generation of leaders.</p>
+    </div>
+
+    <div class="careers-intro">
+      <div class="careers-intro-text">
+        <h3>Why Work with The Royal?</h3>
+        <p>We offer a professional, supportive environment where educators grow alongside their students. Our institution values dedication, innovation, and the pursuit of academic excellence.</p>
+        <div class="careers-perks">
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Competitive Salary</div>
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Professional Development</div>
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Cambridge Training</div>
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Growth Opportunities</div>
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Supportive Culture</div>
+          <div class="perk-item"><i class="fas fa-check-circle"></i> Modern Facilities</div>
+        </div>
+      </div>
+      <div style="background:var(--gold-pale);border-radius:var(--radius-lg);padding:32px;border:1px solid var(--gold-light);">
+        <div style="text-align:center;margin-bottom:18px;">
+          <i class="fas fa-envelope-open-text" style="font-size:2.5rem;color:var(--gold);"></i>
+          <h4 style="margin-top:10px;color:var(--navy);">How to Apply</h4>
+        </div>
+        <p style="font-size:0.88rem;color:var(--slate);line-height:1.7;margin-bottom:14px;">
+          1. Browse available positions below.<br>
+          2. Click <strong>"Apply Now"</strong> on the role you want.<br>
+          3. Fill in your details and upload your CV.<br>
+          4. Your application is sent instantly to our WhatsApp.
+        </p>
+        <div style="background:var(--white);border-radius:8px;padding:12px;border:1px solid var(--border);font-size:0.82rem;color:var(--slate-light);display:flex;align-items:center;gap:8px;">
+          <i class="fab fa-whatsapp" style="color:var(--green);font-size:1rem;"></i>
+          Applications forwarded to WhatsApp instantly
+        </div>
+      </div>
+    </div>
+
+    <div class="job-listings" id="jobListings">
+      <!-- Default job postings -->
+      <div class="job-card">
+        <div class="job-card-left">
+          <h3>English Language Teacher — Secondary Level</h3>
+          <p style="font-size:0.88rem;color:var(--slate-light);margin-top:4px;">We need a qualified and experienced English teacher for Classes VI–X with excellent communication skills and a passion for student growth.</p>
+          <div class="job-meta">
+            <span class="job-tag"><i class="fas fa-building"></i> Secondary School</span>
+            <span class="job-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="job-tag"><i class="fas fa-map-marker-alt"></i> Khairpur</span>
+          </div>
+          <div class="job-deadline"><i class="fas fa-calendar-times"></i> Deadline: July 31, 2026</div>
+        </div>
+        <div>
+          <button class="apply-btn" onclick="openApplyModal('English Language Teacher — Secondary Level')">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card-left">
+          <h3>Mathematics Teacher — Primary Section</h3>
+          <p style="font-size:0.88rem;color:var(--slate-light);margin-top:4px;">Seeking a dedicated Maths teacher for Classes I–V. B.Ed or equivalent qualification required with minimum 2 years of teaching experience.</p>
+          <div class="job-meta">
+            <span class="job-tag"><i class="fas fa-building"></i> Primary School</span>
+            <span class="job-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="job-tag"><i class="fas fa-map-marker-alt"></i> Khairpur</span>
+          </div>
+          <div class="job-deadline"><i class="fas fa-calendar-times"></i> Deadline: July 20, 2026</div>
+        </div>
+        <div>
+          <button class="apply-btn" onclick="openApplyModal('Mathematics Teacher — Primary Section')">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card-left">
+          <h3>Library Assistant / Librarian</h3>
+          <p style="font-size:0.88rem;color:var(--slate-light);margin-top:4px;">Manage our off-campus library including cataloguing, member services, and maintaining a productive study environment. Computer literacy required.</p>
+          <div class="job-meta">
+            <span class="job-tag"><i class="fas fa-building"></i> Library</span>
+            <span class="job-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="job-tag"><i class="fas fa-map-marker-alt"></i> Khairpur</span>
+          </div>
+          <div class="job-deadline"><i class="fas fa-calendar-times"></i> Deadline: August 10, 2026</div>
+        </div>
+        <div>
+          <button class="apply-btn" onclick="openApplyModal('Library Assistant / Librarian')">Apply Now</button>
+        </div>
+      </div>
+
+      <div class="job-card">
+        <div class="job-card-left">
+          <h3>Office Administrator / Receptionist</h3>
+          <p style="font-size:0.88rem;color:var(--slate-light);margin-top:4px;">Handle admissions inquiries, maintain student records, and coordinate administrative tasks. MS Office proficiency and Urdu/English fluency required.</p>
+          <div class="job-meta">
+            <span class="job-tag"><i class="fas fa-building"></i> Administration</span>
+            <span class="job-tag"><i class="fas fa-clock"></i> Full-time</span>
+            <span class="job-tag"><i class="fas fa-map-marker-alt"></i> Khairpur</span>
+          </div>
+          <div class="job-deadline"><i class="fas fa-calendar-times"></i> Deadline: July 25, 2026</div>
+        </div>
+        <div>
+          <button class="apply-btn" onclick="openApplyModal('Office Administrator / Receptionist')">Apply Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     CONTACT
+     ========================================= -->
+<section id="contact" class="section section-alt">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Reach Us</div>
+      <h2>Contact & Admissions</h2>
+      <div class="gold-rule"></div>
+      <p>We'd love to hear from you. Get in touch for admissions, inquiries, or a school visit.</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Get in Touch</h3>
+        <p>We're available to answer your questions about admissions, programs, and school visits.</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div class="contact-detail-text">
+            <p>Location</p>
+            <strong>Peoples Colony, Near DHO Office, Khairpur Mirs</strong>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-detail-text">
+            <p>Primary Phone</p>
+            <strong>+92-301-1297766</strong>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone-alt"></i></div>
+          <div class="contact-detail-text">
+            <p>Secondary Phone</p>
+            <strong>+92-313-2862344</strong>
+          </div>
+        </div>
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-clock"></i></div>
+          <div class="contact-detail-text">
+            <p>Office Hours</p>
+            <strong>Mon–Sat: 7:30 AM – 7:00 PM</strong>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <a href="https://wa.me/923011297766" target="_blank" class="qa-btn qa-wa">
+            <i class="fab fa-whatsapp"></i> WhatsApp
+          </a>
+          <a href="tel:+923011297766" class="qa-btn qa-call">
+            <i class="fas fa-phone"></i> Call Now
+          </a>
+          <a href="sms:+923132862344" class="qa-btn qa-sms">
+            <i class="fas fa-sms"></i> SMS
+          </a>
+        </div>
+      </div>
+
+      <div class="inquiry-form">
+        <h3>Quick Inquiry</h3>
+        <p>Fill this form and your message will be sent directly to our WhatsApp.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Student / Parent Name <span style="color:#e53e3e">*</span></label>
+            <input type="text" id="inqName" class="form-control" placeholder="Full name">
+          </div>
+          <div class="form-group">
+            <label>Phone / WhatsApp <span style="color:#e53e3e">*</span></label>
+            <input type="tel" id="inqPhone" class="form-control" placeholder="03001234567">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Interested Program <span style="color:#e53e3e">*</span></label>
+          <select id="inqCourse" class="form-control">
+            <option value="">Select a program</option>
+            <option>3 Months English Course</option>
+            <option>School Admission (Playgroup to KG-II)</option>
+            <option>School Admission (KG to Intermediate)</option>
+            <option>Tuition Centre</option>
+            <option>Library Membership</option>
+            <option>Other Inquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Message (Optional)</label>
+          <textarea id="inqMessage" class="form-control" placeholder="Any specific questions or requirements?"></textarea>
+        </div>
+        <button class="btn-primary" onclick="sendInquiryToWhatsApp()" style="width:100%;justify-content:center;font-size:0.95rem;padding:13px;">
+          <i class="fab fa-whatsapp"></i> Send via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- =========================================
+     FOOTER
+     ========================================= -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <p class="brand-name">The Royal Grammar School & Academy</p>
+      <p class="brand-motto">Learn Today, Lead Tomorrow</p>
+      <p>Providing quality education rooted in values, excellence, and character development. Serving the families of Khairpur with dedication since our founding.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <a href="#home">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#news">News</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Programs</h4>
+      <a href="#programs">English Academy</a>
+      <a href="#programs">School Admissions</a>
+      <a href="#programs">Tuition Centre</a>
+      <a href="#programs">Off-Campus Library</a>
+      <a href="#programs">Co-curriculars</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 The Royal Grammar School & Academy, Khairpur. All Rights Reserved.</p>
+    <p class="gold">Peoples Colony, Near DHO Office, Khairpur Mirs</p>
+  </div>
+</footer>
+
+
+<!-- =========================================
+     APPLICATION MODAL
+     ========================================= -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal">
+    <div class="modal-head">
+      <h3>Job Application</h3>
+      <p>Complete the form below. Your application will be sent to our WhatsApp immediately.</p>
+      <span class="job-applied" id="applyJobTitle">Loading...</span>
+      <button class="modal-close" onclick="closeApplyModal()"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name <span>*</span></label>
+          <input type="text" id="appName" class="form-control" placeholder="Your full name">
+        </div>
+        <div class="form-group">
+          <label>Father's Name <span>*</span></label>
+          <input type="text" id="appFather" class="form-control" placeholder="Father's name">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Phone / WhatsApp <span>*</span></label>
+          <input type="tel" id="appPhone" class="form-control" placeholder="03001234567">
+        </div>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" id="appEmail" class="form-control" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Highest Qualification <span>*</span></label>
+          <select id="appQual" class="form-control">
+            <option value="">Select qualification</option>
+            <option>Matric</option>
+            <option>Intermediate</option>
+            <option>B.A / B.Sc</option>
+            <option>B.Ed</option>
+            <option>M.A / M.Sc</option>
+            <option>M.Ed</option>
+            <option>M.Phil</option>
+            <option>PhD</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Years of Experience</label>
+          <select id="appExp" class="form-control">
+            <option>Fresh Graduate</option>
+            <option>Less than 1 year</option>
+            <option>1–2 years</option>
+            <option>3–5 years</option>
+            <option>5–10 years</option>
+            <option>10+ years</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Cover Letter / Why should we hire you?</label>
+        <textarea id="appCover" class="form-control" placeholder="Tell us about yourself and why you're a great fit for this role..."></textarea>
+      </div>
+      <div class="form-group">
+        <label>Upload CV / Resume <span>*</span></label>
+        <label class="file-input-wrap" for="appCVFile">
+          <i class="fas fa-file-upload"></i>
+          <p><strong>Click to upload your CV</strong><br>PDF, DOC, DOCX — Max 5MB</p>
+          <div class="file-name" id="cvFileName">No file chosen</div>
+          <input type="file" id="appCVFile" accept=".pdf,.doc,.docx" onchange="handleCVFile(this)">
+        </label>
+      </div>
+
+      <div class="form-footer">
+        <div class="note">
+          <i class="fab fa-whatsapp"></i>
+          <span>Your application details will be sent directly to our WhatsApp for immediate review. We'll contact you within 48 hours.</span>
+        </div>
+        <button class="btn-primary" onclick="submitApplication()" style="width:100%;justify-content:center;font-size:0.95rem;padding:13px;">
+          <i class="fab fa-whatsapp"></i> Submit Application via WhatsApp
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- =========================================
+     IMAGE LIGHTBOX
+     ========================================= -->
+<div class="lightbox" id="lightbox">
+  <img id="lightboxImg" src="" alt="Gallery Image">
+  <button class="lightbox-close" onclick="closeLightbox()"><i class="fas fa-times"></i></button>
+</div>
+
+
+<!-- =========================================
+     JAVASCRIPT
+     ========================================= -->
+<script>
+// ==========================================
+// CONFIGURATION — Replace with your keys
+// ==========================================
+const ADMIN_PASSWORD = "royal2026";
+const WHATSAPP_NUMBER = "923011297766";
+
+// In-memory storage for this session
+// (Replace with Supabase integration for persistence)
+let sessionGallery = [];
+let sessionNews = [];
+let sessionJobs = [];
+let sessionApplications = [];
+let currentJobTitle = '';
+
+// ==========================================
+// ADMIN LOGIN
+// ==========================================
+function adminLogin() {
+  const pass = prompt("Enter Admin Password:");
+  if (pass === ADMIN_PASSWORD) {
+    const panel = document.getElementById('adminPanel');
+    panel.style.display = 'block';
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => { panel.style.scrollMarginTop = '80px'; }, 100);
+  } else if (pass !== null) {
+    alert("Incorrect password. Access denied.");
+  }
+}
+
+// ==========================================
+// ADMIN TABS
+// ==========================================
+function switchTab(tabId, btn) {
+  document.querySelectorAll('.admin-tab-pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+  btn.classList.add('active');
+}
+
+// ==========================================
+// GALLERY UPLOAD (session-based preview)
+// ==========================================
+document.getElementById('galleryFileInput').addEventListener('change', function(e) {
+  const preview = document.getElementById('uploadPreviewArea');
+  preview.innerHTML = '';
+  Array.from(e.target.files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      const img = document.createElement('img');
+      img.src = ev.target.result;
+      img.style.cssText = 'width:80px;height:60px;object-fit:cover;border-radius:6px;border:2px solid var(--gold-light);';
+      preview.appendChild(img);
+    };
+    reader.readAsDataURL(file);
+  });
+});
+
+function uploadGalleryImages() {
+  const files = document.getElementById('galleryFileInput').files;
+  const statusEl = document.getElementById('uploadStatusMsg');
+
+  if (!files.length) {
+    showStatus(statusEl, 'error', 'Please select at least one image.');
+    return;
+  }
+
+  showStatus(statusEl, 'loading', 'Processing images...');
+
+  let processed = 0;
+  Array.from(files).forEach(file => {
+    const reader = new FileReader();
+    reader.onload = ev => {
+      sessionGallery.push({ src: ev.target.result, caption: file.name.replace(/\.[^.]+$/, '') });
+      processed++;
+      if (processed === files.length) {
+        renderGallery();
+        showStatus(statusEl, 'success', `✅ ${files.length} image(s) added to gallery!`);
+        document.getElementById('galleryFileInput').value = '';
+        document.getElementById('uploadPreviewArea').innerHTML = '';
+        setTimeout(() => {
+          document.getElementById('adminPanel').style.display = 'none';
+          document.getElementById('gallery').scrollIntoView({ behavior: 'smooth' });
+        }, 1800);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+}
+
+function renderGallery() {
+  const grid = document.getElementById('galleryGrid');
+  if (!sessionGallery.length) {
+    grid.innerHTML = `<div class="gallery-placeholder"><i class="fas fa-images"></i><p>Gallery images will appear here once uploaded by the admin.</p></div>`;
+    return;
+  }
+  grid.innerHTML = '';
+  sessionGallery.forEach((item, i) => {
+    const div = document.createElement('div');
+    div.className = 'gallery-item';
+    div.innerHTML = `
+      <img src="${item.src}" alt="${item.caption}" loading="lazy">
+      <div class="gallery-overlay"><span>${item.caption}</span></div>
+    `;
+    div.onclick = () => openLightbox(item.src);
+    grid.appendChild(div);
+  });
+}
+
+// ==========================================
+// ANNOUNCEMENTS
+// ==========================================
+function postAnnouncement() {
+  const title = document.getElementById('newsTitleInput').value.trim();
+  const cat = document.getElementById('newsCatInput').value;
+  const desc = document.getElementById('newsDescInput').value.trim();
+  const date = document.getElementById('newsDateInput').value;
+  const statusEl = document.getElementById('newsStatusMsg');
+
+  if (!title || !desc) {
+    showStatus(statusEl, 'error', 'Please fill in the required fields.');
+    return;
+  }
+
+  const dateStr = date ? new Date(date).toLocaleDateString('en-GB', { month: 'short', year: 'numeric' }) : 'Jun 2026';
+
+  sessionNews.push({ title, cat, desc, dateStr });
+  renderNews();
+
+  showStatus(statusEl, 'success', '✅ Announcement published successfully!');
+  document.getElementById('newsTitleInput').value = '';
+  document.getElementById('newsDescInput').value = '';
+  document.getElementById('newsDateInput').value = '';
+
+  setTimeout(() => {
+    document.getElementById('adminPanel').style.display = 'none';
+    document.getElementById('news').scrollIntoView({ behavior: 'smooth' });
+  }, 1500);
+}
+
+function renderNews() {
+  if (!sessionNews.length) return;
+  const grid = document.getElementById('newsGrid');
+  sessionNews.forEach(item => {
+    const card = document.createElement('div');
+    card.className = 'news-card';
+    card.innerHTML = `
+      <div class="news-card-top">
+        <span class="news-date">${item.dateStr}</span>
+        <span class="news-cat">${item.cat}</span>
+      </div>
+      <div class="news-card-body">
+        <h3>${item.title}</h3>
+        <p>${item.desc}</p>
+      </div>
+    `;
+    grid.prepend(card);
+  });
+  sessionNews = [];
+}
+
+// ==========================================
+// JOB POSTINGS
+// ==========================================
+function postJob() {
+  const title = document.getElementById('jobTitleInput').value.trim();
+  const dept = document.getElementById('jobDeptInput').value;
+  const type = document.getElementById('jobTypeInput').value;
+  const deadline = document.getElementById('jobDeadlineInput').value;
+  const desc = document.getElementById('jobDescInput').value.trim();
+  const statusEl = document.getElementById('jobStatusMsg');
+
+  if (!title || !desc || !deadline) {
+    showStatus(statusEl, 'error', 'Please fill in all required fields.');
+    return;
+  }
+
+  const deadlineFormatted = new Date(deadline).toLocaleDateString('en-GB', {
+    day: 'numeric', month: 'long', year: 'numeric'
+  });
+
+  const card = document.createElement('div');
+  card.className = 'job-card';
+  card.style.borderLeft = '3px solid var(--gold)';
+  card.innerHTML = `
+    <div class="job-card-left">
+      <h3>${title}</h3>
+      <p style="font-size:0.88rem;color:var(--slate-light);margin-top:4px;">${desc}</p>
+      <div class="job-meta">
+        <span class="job-tag"><i class="fas fa-building"></i> ${dept}</span>
+        <span class="job-tag"><i class="fas fa-clock"></i> ${type}</span>
+        <span class="job-tag"><i class="fas fa-map-marker-alt"></i> Khairpur</span>
+      </div>
+      <div class="job-deadline"><i class="fas fa-calendar-times"></i> Deadline: ${deadlineFormatted}</div>
+    </div>
+    <div>
+      <button class="apply-btn" onclick="openApplyModal('${title.replace(/'/g, "\\'")}')">Apply Now</button>
+    </div>
+  `;
+
+  document.getElementById('jobListings').prepend(card);
+
+  showStatus(statusEl, 'success', '✅ Job vacancy posted successfully!');
+  document.getElementById('jobTitleInput').value = '';
+  document.getElementById('jobDescInput').value = '';
+  document.getElementById('jobDeadlineInput').value = '';
+
+  setTimeout(() => {
+    document.getElementById('adminPanel').style.display = 'none';
+    document.getElementById('careers').scrollIntoView({ behavior: 'smooth' });
+  }, 1500);
+}
+
+// ==========================================
+// APPLICATION MODAL
+// ==========================================
+function openApplyModal(jobTitle) {
+  currentJobTitle = jobTitle;
+  document.getElementById('applyJobTitle').textContent = 'Applying for: ' + jobTitle;
+  document.getElementById('applyModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeApplyModal() {
+  document.getElementById('applyModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('applyModal').addEventListener('click', function(e) {
+  if (e.target === this) closeApplyModal();
+});
+
+function handleCVFile(input) {
+  const name = input.files[0] ? input.files[0].name : 'No file chosen';
+  document.getElementById('cvFileName').textContent = name;
+}
+
+function submitApplication() {
+  const name = document.getElementById('appName').value.trim();
+  const father = document.getElementById('appFather').value.trim();
+  const phone = document.getElementById('appPhone').value.trim();
+  const email = document.getElementById('appEmail').value.trim();
+  const qual = document.getElementById('appQual').value;
+  const exp = document.getElementById('appExp').value;
+  const cover = document.getElementById('appCover').value.trim();
+  const cvFile = document.getElementById('appCVFile').files[0];
+
+  if (!name || !father || !phone || !qual) {
+    alert('Please fill in all required fields (Name, Father Name, Phone, Qualification).');
+    return;
+  }
+
+  // Build WhatsApp message
+  const msg = [
+    `*📋 New Job Application — Royal Grammar School*`,
+    ``,
+    `*Position:* ${currentJobTitle}`,
+    `*Applicant:* ${name}`,
+    `*Father's Name:* ${father}`,
+    `*Phone/WhatsApp:* ${phone}`,
+    `*Email:* ${email || 'Not provided'}`,
+    `*Qualification:* ${qual}`,
+    `*Experience:* ${exp}`,
+    `*Cover Letter:*`,
+    cover || '(Not provided)',
+    ``,
+    `*CV:* ${cvFile ? cvFile.name + ' (will be sent separately)' : 'Not uploaded'}`,
+    ``,
+    `_Submitted via Royal Grammar School Website_`
+  ].join('%0A');
+
+  const link = `https://wa.me/${WHATSAPP_NUMBER}?text=${msg.replace(/ /g, '%20')}`;
+
+  // Track in admin panel
+  sessionApplications.push({ name, phone, job: currentJobTitle, time: new Date().toLocaleTimeString() });
+  renderApplicationsLog();
+
+  // Open WhatsApp
+  window.open(link, '_blank');
+
+  // Reset and close
+  closeApplyModal();
+
+  // Also open WhatsApp to send CV file if present
+  if (cvFile) {
+    setTimeout(() => {
+      alert(`Please also send your CV file (${cvFile.name}) via WhatsApp to +${WHATSAPP_NUMBER}.`);
+    }, 1000);
+  }
+
+  // Clear form
+  ['appName','appFather','appPhone','appEmail','appCover'].forEach(id => document.getElementById(id).value = '');
+  document.getElementById('appQual').value = '';
+  document.getElementById('cvFileName').textContent = 'No file chosen';
+}
+
+function renderApplicationsLog() {
+  const list = document.getElementById('applicationsList');
+  if (!sessionApplications.length) return;
+  list.innerHTML = sessionApplications.map(a => `
+    <div style="padding:14px;background:var(--ivory);border-radius:8px;border:1px solid var(--border);margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;font-size:0.88rem;">
+      <div>
+        <strong style="color:var(--navy);">${a.name}</strong> — ${a.job}
+        <div style="color:var(--slate-light);font-size:0.78rem;margin-top:2px;">${a.phone} &bull; ${a.time}</div>
+      </div>
+      <span style="background:#f0fff4;color:#276749;font-size:0.72rem;font-weight:700;padding:3px 10px;border-radius:50px;">Sent to WA</span>
+    </div>
+  `).join('');
+}
+
+// ==========================================
+// INQUIRY FORM
+// ==========================================
+function sendInquiryToWhatsApp() {
+  const name = document.getElementById('inqName').value.trim();
+  const phone = document.getElementById('inqPhone').value.trim();
+  const course = document.getElementById('inqCourse').value;
+  const message = document.getElementById('inqMessage').value.trim();
+
+  if (!name || !phone || !course) {
+    alert('Please fill in Name, Phone, and Program selection.');
+    return;
+  }
+
+  const text = [
+    `*📚 Website Inquiry — Royal Grammar School*`,
+    ``,
+    `*Name:* ${name}`,
+    `*Phone:* ${phone}`,
+    `*Interested In:* ${course}`,
+    `*Message:* ${message || 'No message'}`,
+    ``,
+    `_Sent via website inquiry form_`
+  ].join('%0A');
+
+  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${text.replace(/ /g, '%20')}`, '_blank');
+}
+
+// ==========================================
+// LIGHTBOX
+// ==========================================
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.getElementById('lightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeLightbox();
+});
+
+// ==========================================
+// STATUS HELPER
+// ==========================================
+function showStatus(el, type, msg) {
+  el.className = 'post-status ' + type;
+  el.style.display = 'block';
+  el.innerHTML = msg;
+  if (type !== 'loading') {
+    setTimeout(() => { el.style.display = 'none'; }, 4000);
+  }
+}
+
+// ==========================================
+// GALLERY FILTER BUTTONS (UI only)
+// ==========================================
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    this.classList.add('active');
+    // With real backend, filter by category here
+  });
+});
+
+// Keyboard close for modals
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeApplyModal();
+    closeLightbox();
+  }
+});
+
+// ==========================================
+// ANIMATED CODE WINDOW
+// ==========================================
+const codeLines = [
+  { ln:'1',  parts: [{cls:'cm', t:'# Royal Grammar School — Coding Academy'}] },
+  { ln:'2',  parts: [{cls:'cm', t:'# Python Beginner Project: Student Grades'}] },
+  { ln:'3',  parts: [] },
+  { ln:'4',  parts: [{cls:'kw', t:'class '},{cls:'nm', t:'Student'},{cls:'op', t:':'}] },
+  { ln:'5',  parts: [{cls:'op', t:'    '},{cls:'kw', t:'def '},{cls:'fn', t:'__init__'},{cls:'op', t:'(self, name, grade):'}] },
+  { ln:'6',  parts: [{cls:'op', t:'        self.'},{cls:'nm', t:'name'},{cls:'op', t:' = name'}] },
+  { ln:'7',  parts: [{cls:'op', t:'        self.'},{cls:'nm', t:'grade'},{cls:'op', t:' = grade'}] },
+  { ln:'8',  parts: [] },
+  { ln:'9',  parts: [{cls:'op', t:'    '},{cls:'kw', t:'def '},{cls:'fn', t:'result'},{cls:'op', t:'(self):'}] },
+  { ln:'10', parts: [{cls:'op', t:'        '},{cls:'kw', t:'if '},{cls:'op', t:'self.grade >= '},{cls:'nm', t:'80'},{cls:'op', t:':'}] },
+  { ln:'11', parts: [{cls:'op', t:'            '},{cls:'kw', t:'return '},{cls:'st', t:'"Distinction 🏆"'}] },
+  { ln:'12', parts: [{cls:'op', t:'        '},{cls:'kw', t:'elif '},{cls:'op', t:'self.grade >= '},{cls:'nm', t:'60'},{cls:'op', t:':'}] },
+  { ln:'13', parts: [{cls:'op', t:'            '},{cls:'kw', t:'return '},{cls:'st', t:'"Pass ✅"'}] },
+  { ln:'14', parts: [{cls:'op', t:'        '},{cls:'kw', t:'else'},{cls:'op', t:':'}] },
+  { ln:'15', parts: [{cls:'op', t:'            '},{cls:'kw', t:'return '},{cls:'st', t:'"Study Harder 📚"'}] },
+  { ln:'16', parts: [] },
+  { ln:'17', parts: [{cls:'nm', t:'ahmed'},{cls:'op', t:' = '},{cls:'fn', t:'Student'},{cls:'op', t:'('},{cls:'st', t:'"Ahmed"'},{cls:'op', t:', '},{cls:'nm', t:'92'},{cls:'op', t:')'}] },
+  { ln:'18', parts: [{cls:'fn', t:'print'},{cls:'op', t:'(ahmed.'},{cls:'fn', t:'result'},{cls:'op', t:'())  '},{cls:'cm', t:'# Distinction 🏆'}] },
+];
+
+function buildCodeLine(lineData) {
+  const div = document.createElement('div');
+  div.className = 'code-line';
+  const lnSpan = document.createElement('span');
+  lnSpan.className = 'ln';
+  lnSpan.textContent = lineData.ln;
+  div.appendChild(lnSpan);
+
+  const contentSpan = document.createElement('span');
+  if (!lineData.parts.length) {
+    contentSpan.innerHTML = '&nbsp;';
+  } else {
+    lineData.parts.forEach(p => {
+      const partSpan = document.createElement('span');
+      partSpan.className = p.cls;
+      partSpan.textContent = p.t;
+      contentSpan.appendChild(partSpan);
+    });
+  }
+  div.appendChild(contentSpan);
+  return div;
+}
+
+function animateCodeWindow() {
+  const display = document.getElementById('codeDisplay');
+  if (!display) return;
+  display.innerHTML = '';
+  let i = 0;
+  function addLine() {
+    if (i >= codeLines.length) {
+      // add cursor on last line then restart
+      const cursor = document.createElement('span');
+      cursor.className = 'cursor';
+      display.lastChild && display.lastChild.appendChild(cursor);
+      setTimeout(() => {
+        display.innerHTML = '';
+        i = 0;
+        addLine();
+      }, 3500);
+      return;
+    }
+    display.appendChild(buildCodeLine(codeLines[i]));
+    display.scrollTop = display.scrollHeight;
+    i++;
+    setTimeout(addLine, 120 + Math.random() * 80);
+  }
+  addLine();
+}
+
+// Start animation when coding section is visible
+const codingObserver = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    animateCodeWindow();
+    codingObserver.disconnect();
+  }
+}, { threshold: 0.3 });
+
+const codingSection = document.getElementById('coding');
+if (codingSection) codingObserver.observe(codingSection);
+</script>
+</body>
+</html>
