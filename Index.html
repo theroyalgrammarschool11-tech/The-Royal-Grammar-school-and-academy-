@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Royal Grammar School &amp; Academy, Khairpur</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root{
+  --navy:#00205b;--navy-deep:#001540;--gold:#c9a227;--gold-light:#e8c547;
+  --gold-pale:#f9f2dc;--ivory:#fafaf7;--white:#fff;--slate:#4a5568;
+  --slate-light:#718096;--border:#e8e8e8;--green:#25D366;
+  --shadow-sm:0 2px 8px rgba(0,32,91,.08);--shadow-md:0 8px 30px rgba(0,32,91,.12);
+  --radius:12px;--radius-lg:20px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:var(--ivory);color:var(--slate);overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Playfair Display',serif;color:var(--navy)}
+.container{max-width:1160px;margin:0 auto;padding:0 24px}
+.section{padding:80px 0}
+.section-alt{background:var(--white)}
+.badge{display:inline-block;background:var(--gold-pale);color:var(--gold);font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 12px;border-radius:50px;border:1px solid var(--gold-light);margin-bottom:12px}
+.section-header{text-align:center;margin-bottom:52px}
+.section-header h2{font-size:2.4rem;margin-bottom:12px}
+.section-header p{color:var(--slate-light);max-width:560px;margin:0 auto}
+.gold-rule{width:48px;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold-light));margin:14px auto 16px;border-radius:2px}
+
+/* HEADER */
+header{background:var(--white);border-bottom:1px solid var(--border);position:sticky;top:0;z-index:999;box-shadow:var(--shadow-sm)}
+.navbar{display:flex;justify-content:space-between;align-items:center;padding:14px 24px;max-width:1160px;margin:0 auto;gap:16px}
+.logo-area{display:flex;align-items:center;gap:14px;text-decoration:none}
+.logo-crest{width:52px;height:52px;background:var(--navy);border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid var(--gold);flex-shrink:0}
+.logo-crest span{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.1rem;font-weight:900}
+.logo-text-block h1{font-size:1.1rem;font-weight:900;letter-spacing:.04em;line-height:1.1}
+.logo-text-block small{font-size:.68rem;font-weight:600;color:var(--gold);letter-spacing:.08em;text-transform:uppercase;display:block}
+.nav-links{display:flex;align-items:center;gap:4px;flex-wrap:wrap}
+.nav-links a{text-decoration:none;color:var(--slate);padding:8px 14px;border-radius:8px;font-size:.88rem;font-weight:500;transition:.2s}
+.nav-links a:hover{background:var(--gold-pale);color:var(--navy)}
+.nav-cta{background:var(--navy)!important;color:#fff!important;font-weight:600!important;padding:9px 18px!important}
+.nav-cta:hover{background:var(--gold)!important;color:var(--navy)!important}
+.nav-admin{background:var(--gold-pale);color:var(--gold);border:1px solid var(--gold-light);font-weight:600;cursor:pointer;padding:8px 14px;border-radius:8px;font-size:.85rem;font-family:inherit}
+.nav-admin:hover{background:var(--gold);color:#fff}
+
+/* HERO */
+.hero{position:relative;min-height:80vh;display:flex;align-items:center;overflow:hidden;background:var(--navy-deep)}
+.hero-bg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1580582932707-520aed937b7b?q=80&w=1920') center/cover;opacity:.18}
+.hero-stripe{position:absolute;top:0;right:0;width:50%;height:100%;background:linear-gradient(135deg,transparent 30%,rgba(201,162,39,.07) 100%);border-left:2px solid rgba(201,162,39,.25);clip-path:polygon(15% 0,100% 0,100% 100%,0% 100%)}
+.hero-content{position:relative;z-index:2;max-width:1160px;margin:0 auto;padding:80px 24px;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--gold);font-size:.78rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:20px}
+.hero-eyebrow::before{content:'';width:28px;height:2px;background:var(--gold)}
+.hero h2{font-size:clamp(2.2rem,4vw,3.4rem);line-height:1.12;color:#fff;margin-bottom:20px}
+.hero h2 em{font-style:normal;color:var(--gold)}
+.hero-desc{color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.7;margin-bottom:36px}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+.btn-primary{background:var(--gold);color:var(--navy);padding:13px 30px;border-radius:8px;font-weight:700;font-size:.95rem;text-decoration:none;border:none;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.25s;font-family:inherit}
+.btn-primary:hover{background:var(--gold-light);transform:translateY(-2px);box-shadow:0 6px 20px rgba(201,162,39,.35)}
+.btn-outline{background:transparent;color:#fff;padding:13px 30px;border-radius:8px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid rgba(255,255,255,.35);cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:.25s}
+.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,.1);border-radius:14px;overflow:hidden;border:1px solid rgba(255,255,255,.1)}
+.stat-item{padding:24px 16px;background:rgba(0,21,64,.6);backdrop-filter:blur(10px);text-align:center}
+.stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--gold);line-height:1}
+.stat-label{font-size:.72rem;color:rgba(255,255,255,.6);text-transform:uppercase;letter-spacing:.06em;margin-top:4px}
+
+/* PROGRAMS */
+.programs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:24px}
+.program-card{background:var(--white);border-radius:var(--radius-lg);overflow:hidden;border:1px solid var(--border);transition:.3s;box-shadow:var(--shadow-sm)}
+.program-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:var(--gold-light)}
+.program-top{background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);padding:28px 24px 20px;position:relative;overflow:hidden}
+.program-top::after{content:'';position:absolute;bottom:-20px;right:-20px;width:80px;height:80px;border-radius:50%;background:rgba(201,162,39,.12)}
+.program-icon{width:52px;height:52px;background:rgba(201,162,39,.15);border:1.5px solid rgba(201,162,39,.4);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.program-icon i{color:var(--gold);font-size:1.4rem}
+.program-top h3{color:#fff;font-size:1.15rem}
+.program-top h3 small{display:block;font-family:'Inter',sans-serif;font-size:.72rem;color:var(--gold);font-weight:600;margin-top:2px;letter-spacing:.02em}
+.program-body{padding:20px 24px 24px}
+.program-body p{color:var(--slate-light);font-size:.9rem;line-height:1.6;margin-bottom:16px}
+.program-meta{display:flex;gap:8px;flex-wrap:wrap}
+.meta-tag{font-size:.72rem;font-weight:600;padding:3px 10px;background:var(--gold-pale);color:var(--gold);border-radius:50px;border:1px solid var(--gold-light)}
+.program-card.featured .program-top{background:linear-gradient(135deg,#0a4d3c 0%,#053024 100%)}
+.program-card.featured .program-icon{background:rgba(232,197,71,.18);border-color:rgba(232,197,71,.5)}
+
+/* NEWS */
+.news-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.news-card{background:var(--white);border-radius:var(--radius);border:1px solid var(--border);overflow:hidden;box-shadow:var(--shadow-sm);transition:.25s}
+.news-card:hover{box-shadow:var(--shadow-md)}
+.news-card-top{background:linear-gradient(90deg,var(--navy),#0a3580);padding:12px 18px;display:flex;align-items:center;gap:10px}
+.news-date{background:var(--gold);color:var(--navy);font-size:.7rem;font-weight:700;padding:3px 9px;border-radius:50px}
+.news-cat{color:rgba(255,255,255,.7);font-size:.72rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase}
+.news-card-body{padding:20px}
+.news-card-body h3{font-size:1rem;margin-bottom:8px}
+.news-card-body p{color:var(--slate-light);font-size:.88rem;line-height:1.6}
+
+/* CAREERS */
+.careers-intro{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:60px}
+.careers-intro-text h3{font-size:1.7rem;margin-bottom:14px}
+.careers-intro-text p{color:var(--slate-light);line-height:1.7;margin-bottom:16px}
+.careers-perks{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.perk-item{display:flex;align-items:center;gap:10px;font-size:.88rem;color:var(--slate);font-weight:500}
+.perk-item i{color:var(--gold);width:18px}
+.job-listings{display:flex;flex-direction:column;gap:18px}
+.job-card{background:var(--white);border:1px solid var(--border);border-radius:var(--radius);padding:24px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:center;transition:.25s;box-shadow:var(--shadow-sm)}
+.job-card:hover{border-color:var(--gold-light);box-shadow:var(--shadow-md);transform:translateX(4px)}
+.job-card-left h3{font-size:1.05rem;margin-bottom:6px}
+.job-meta{display:flex;gap:14px;flex-wrap:wrap;margin-top:10px}
+.job-tag{display:flex;align-items:center;gap:5px;font-size:.78rem;color:var(--slate-light)}
+.job-tag i{color:var(--gold);font-size:.72rem}
+.job-deadline{font-size:.75rem;color:#e53e3e;font-weight:600;margin-top:6px}
+.apply-btn{background:var(--navy);color:#fff;padding:10px 22px;border-radius:8px;font-size:.88rem;font-weight:600;border:none;cursor:pointer;transition:.2s;white-space:nowrap;font-family:inherit}
+.apply-btn:hover{background:var(--gold);color:var(--navy)}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,21,64,.75);backdrop-filter:blur(6px);z-index:9000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:.3s}
+.modal-overlay.open{opacity:1;pointer-events:all}
+.modal{background:#fff;border-radius:var(--radius-lg);max-width:640px;width:100%;max-height:90vh;overflow-y:auto;box-shadow:0 20px 60px rgba(0,21,64,.25);transform:translateY(20px);transition:.3s}
+.modal-overlay.open .modal{transform:translateY(0)}
+.modal-head{background:linear-gradient(135deg,var(--navy),var(--navy-deep));padding:28px;position:relative}
+.modal-head h3{color:#fff;font-size:1.3rem;margin-bottom:4px}
+.modal-head p{color:rgba(255,255,255,.65);font-size:.88rem}
+.job-applied{background:var(--gold-pale);color:var(--gold);font-size:.72rem;font-weight:700;padding:4px 12px;border-radius:50px;border:1px solid var(--gold-light);margin-top:10px;display:inline-block}
+.modal-close{position:absolute;top:16px;right:16px;background:rgba(255,255,255,.12);border:none;color:#fff;width:34px;height:34px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center}
+.modal-close:hover{background:rgba(255,255,255,.25)}
+.modal-body{padding:28px}
+
+/* FORM */
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.82rem;font-weight:600;color:var(--navy);margin-bottom:6px}
+.form-group label span{color:#e53e3e}
+.form-control{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:8px;font-family:inherit;font-size:.92rem;color:var(--slate);background:var(--ivory);transition:.2s}
+.form-control:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,39,.15);background:#fff}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+textarea.form-control{resize:vertical;min-height:90px}
+select.form-control{cursor:pointer}
+.file-input-wrap{border:2px dashed var(--border);border-radius:10px;padding:20px;text-align:center;cursor:pointer;transition:.2s;background:var(--ivory);display:block}
+.file-input-wrap:hover{border-color:var(--gold);background:var(--gold-pale)}
+.file-input-wrap input{display:none}
+.file-input-wrap i{font-size:1.8rem;color:var(--gold);display:block;margin-bottom:8px}
+.file-input-wrap p{font-size:.85rem;color:var(--slate-light)}
+.file-input-wrap strong{color:var(--navy)}
+.file-name{font-size:.8rem;color:var(--gold);font-weight:600;margin-top:6px}
+.form-footer{margin-top:24px}
+.form-footer .note{font-size:.78rem;color:var(--slate-light);display:flex;gap:6px;margin-bottom:16px}
+.form-footer .note i{color:var(--green);margin-top:2px}
+
+/* CONTACT */
+.contact-grid{display:grid;grid-template-columns:1fr 1.4fr;gap:40px}
+.contact-card{background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);border-radius:var(--radius-lg);padding:36px;color:#fff;position:relative;overflow:hidden}
+.contact-card::before{content:'';position:absolute;bottom:-40px;right:-40px;width:160px;height:160px;border-radius:50%;background:rgba(201,162,39,.08);border:40px solid rgba(201,162,39,.05)}
+.contact-card h3{color:#fff;margin-bottom:6px}
+.contact-card>p{color:rgba(255,255,255,.65);font-size:.9rem;margin-bottom:28px}
+.contact-detail{display:flex;gap:12px;margin-bottom:18px;align-items:flex-start;position:relative;z-index:1}
+.contact-detail-icon{width:38px;height:38px;background:rgba(201,162,39,.15);border:1px solid rgba(201,162,39,.3);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-detail-icon i{color:var(--gold);font-size:.9rem}
+.contact-detail-text p{font-size:.78rem;color:rgba(255,255,255,.5)}
+.contact-detail-text strong{color:#fff;font-size:.92rem;display:block;word-break:break-word}
+.contact-detail-text a{color:#fff;text-decoration:none}
+.contact-detail-text a:hover{color:var(--gold)}
+.quick-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px;position:relative;z-index:1}
+.qa-btn{display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:8px;font-size:.85rem;font-weight:600;text-decoration:none;transition:.2s}
+.qa-wa{background:var(--green);color:#fff}
+.qa-call{background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.2)}
+.qa-sms{background:var(--gold);color:var(--navy)}
+.qa-btn:hover{transform:scale(1.04);opacity:.9}
+.inquiry-form{background:#fff;border-radius:var(--radius-lg);padding:36px;border:1px solid var(--border);box-shadow:var(--shadow-sm)}
+.inquiry-form h3{margin-bottom:4px}
+.inquiry-form>p{color:var(--slate-light);font-size:.88rem;margin-bottom:24px}
+
+/* ADMIN */
+.admin-panel{display:none;background:#fff;border:2px solid var(--gold-light);border-radius:var(--radius-lg);max-width:860px;margin:0 auto;overflow:hidden;box-shadow:var(--shadow-md)}
+.admin-panel-head{background:linear-gradient(90deg,var(--navy),#0a3580);padding:20px 28px;display:flex;align-items:center;justify-content:space-between}
+.admin-panel-head h3{color:#fff;font-size:1.1rem}
+.admin-panel-head span{color:rgba(255,255,255,.6);font-size:.82rem}
+.admin-tabs{display:flex;border-bottom:1px solid var(--border);background:var(--ivory);overflow-x:auto}
+.admin-tab{padding:12px 20px;font-size:.85rem;font-weight:600;color:var(--slate);cursor:pointer;border:none;background:transparent;border-bottom:3px solid transparent;font-family:inherit;white-space:nowrap}
+.admin-tab:hover{color:var(--navy);background:rgba(201,162,39,.07)}
+.admin-tab.active{color:var(--navy);background:#fff;border-bottom-color:var(--gold)}
+.admin-body{padding:28px}
+.admin-pane{display:none}
+.admin-pane.active{display:block}
+.admin-pane>h4{font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;color:var(--navy);margin-bottom:16px}
+.admin-list{display:flex;flex-direction:column;gap:10px;margin-top:22px}
+.admin-list-item{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border:1px solid var(--border);border-radius:10px;background:var(--ivory);font-size:.86rem}
+.admin-list-item strong{display:block;color:var(--navy);font-size:.9rem;margin-bottom:2px}
+.admin-list-item small{color:var(--slate-light);font-size:.76rem;display:block}
+.btn-danger{background:#fff5f5;color:#e53e3e;border:1px solid #feb2b2;padding:7px 14px;border-radius:8px;font-size:.78rem;font-weight:600;cursor:pointer;font-family:inherit;white-space:nowrap}
+.btn-danger:hover{background:#e53e3e;color:#fff}
+.empty-state{text-align:center;padding:34px 16px;color:var(--slate-light);font-size:.86rem;border:1.5px dashed var(--border);border-radius:10px;background:var(--ivory)}
+.empty-state i{display:block;font-size:1.8rem;color:var(--border);margin-bottom:10px}
+
+/* LIGHTBOX & TOAST */
+.lightbox{position:fixed;inset:0;background:rgba(0,21,64,.94);z-index:9500;display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;pointer-events:none;transition:.3s}
+.lightbox.open{opacity:1;pointer-events:all}
+.lightbox img{max-width:100%;max-height:82vh;border-radius:var(--radius);border:3px solid rgba(201,162,39,.35)}
+.lightbox-caption{position:absolute;bottom:32px;left:0;right:0;text-align:center;color:#fff;font-weight:600}
+.lightbox-close{position:absolute;top:24px;right:28px;background:rgba(255,255,255,.12);border:none;color:#fff;width:44px;height:44px;border-radius:50%;cursor:pointer;font-size:1.15rem}
+.lightbox-close:hover{background:rgba(255,255,255,.28)}
+.toast{position:fixed;bottom:28px;left:50%;transform:translate(-50%,140%);background:var(--navy);color:#fff;padding:14px 26px;border-radius:50px;font-size:.88rem;font-weight:600;box-shadow:0 20px 60px rgba(0,21,64,.25);z-index:10000;display:flex;gap:10px;transition:transform .45s cubic-bezier(.2,.9,.3,1.2);max-width:calc(100vw - 40px)}
+.toast.show{transform:translate(-50%,0)}
+.toast i{color:var(--gold)}
+.toast.error{background:#7b1113}
+.toast.error i{color:#ffb3b3}
+
+/* FOOTER */
+footer{background:var(--navy-deep);color:rgba(255,255,255,.6);padding-top:60px}
+.footer-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:44px}
+.footer-brand{display:flex;align-items:center;gap:14px;margin-bottom:16px}
+.footer-brand .logo-crest{width:46px;height:46px}
+.footer-brand h4{color:#fff;font-size:1rem}
+.footer-brand small{color:var(--gold);font-size:.66rem;letter-spacing:.08em;text-transform:uppercase;font-weight:600}
+.footer-about{font-size:.86rem;line-height:1.75}
+.footer-col h4{color:#fff;font-family:'Inter',sans-serif;font-size:.95rem;font-weight:700;margin-bottom:16px}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.footer-col a{color:rgba(255,255,255,.6);text-decoration:none;font-size:.86rem;transition:.2s}
+.footer-col a:hover{color:var(--gold);padding-left:4px}
+.footer-contact-line{display:flex;gap:10px;font-size:.86rem;margin-bottom:11px}
+.footer-contact-line i{color:var(--gold);margin-top:4px;font-size:.8rem;width:14px}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding:20px 0;display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;font-size:.78rem}
+.footer-socials{display:flex;gap:10px}
+.footer-socials a{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.7);transition:.2s;font-size:.85rem}
+.footer-socials a:hover{background:var(--gold);color:var(--navy);transform:translateY(-2px)}
+
+@media(max-width:1024px){
+  .hero-content,.careers-intro,.contact-grid{grid-template-columns:1fr;gap:44px}
+  .footer-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .section{padding:56px 0}
+  .section-header h2{font-size:1.85rem}
+  .section-header{margin-bottom:36px}
+  .navbar{flex-wrap:wrap;padding:12px 18px}
+  .nav-links{order:3;width:100%;overflow-x:auto;padding-bottom:4px}
+  .nav-links a{padding:8px 11px;font-size:.82rem;white-space:nowrap}
+  .hero-content{padding:56px 20px}
+  .hero-stats{grid-template-columns:1fr}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .btn-primary,.btn-outline{justify-content:center}
+  .form-row{grid-template-columns:1fr}
+  .job-card{grid-template-columns:1fr}
+  .apply-btn{width:100%}
+  .careers-perks,.footer-grid{grid-template-columns:1fr}
+  .footer-bottom{justify-content:center;text-align:center}
+  .modal-body,.admin-body,.inquiry-form,.contact-card{padding:22px}
+  .modal-head{padding:24px 22px 20px}
+  .admin-list-item{flex-direction:column;align-items:flex-start}
+  .quick-actions{flex-direction:column}
+  .qa-btn{justify-content:center}
+}
+:focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px}
+@media(prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <nav class="navbar">
+    <a href="#home" class="logo-area">
+      <div class="logo-crest"><span>RGS</span></div>
+      <div class="logo-text-block">
+        <h1>Royal Grammar School</h1>
+        <small>&amp; Academy, Khairpur</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#programs">Programs</a>
+      <a href="#news">News</a>
+      <a href="#careers">Careers</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="nav-cta">Apply Now</a>
+      <button class="nav-admin" id="adminToggle" type="button"><i class="fas fa-lock"></i> Admin</button>
+    </div>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div>
+      <div class="hero-eyebrow">Est. 1998 &middot; Khairpur, Sindh</div>
+      <h2>Where Character Is <em>Built</em> Alongside Intellect.</h2>
+      <p class="hero-desc">The Royal Grammar School &amp; Academy offers a rigorous, values-driven education from Playgroup through Grade XI — combining strong academics with <strong style="color:#e8c547">Online Quran Pak Education</strong>, <strong style="color:#e8c547">Namaz Course</strong>, sport and leadership.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary"><i class="fas fa-pen-to-square"></i> Begin Admission</a>
+        <a href="#programs" class="btn-outline"><i class="fas fa-compass"></i> Explore Programs</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-stats">
+        <div class="stat-item"><div class="stat-num">27</div><div class="stat-label">Years</div></div>
+        <div class="stat-item"><div class="stat-num">1,400+</div><div class="stat-label">Students</div></div>
+        <div class="stat-item"><div class="stat-num">98%</div><div class="stat-label">Pass Rate</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROGRAMS -->
+<section class="section section-alt" id="programs">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Academics</div>
+      <h2>Our Programs</h2>
+      <div class="gold-rule"></div>
+      <p>دینی اور دنیاوی تعلیم کا حسین امتزاج — ایک مکمل تعلیمی راستہ۔</p>
+    </div>
+    <div class="programs-grid">
+      <article class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-shapes"></i></div>
+          <h3>Early Years</h3>
+        </div>
+        <div class="program-body">
+          <p>Playgroup to Prep. A play-based foundation focused on phonics, numeracy, motor skills and confident self-expression.</p>
+          <div class="program-meta"><span class="meta-tag">Ages 3–5</span><span class="meta-tag">Play-Based</span></div>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-book-open"></i></div>
+          <h3>Primary School</h3>
+        </div>
+        <div class="program-body">
+          <p>Grades I–V. Core literacy and numeracy reinforced with science, Islamiat, Urdu, art and physical education.</p>
+          <div class="program-meta"><span class="meta-tag">Grades I–V</span><span class="meta-tag">Core + Enrichment</span></div>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-flask"></i></div>
+          <h3>Secondary School</h3>
+        </div>
+        <div class="program-body">
+          <p>Grades VI–X. Subject specialisation with dedicated physics, chemistry, biology and mathematics teaching.</p>
+          <div class="program-meta"><span class="meta-tag">Grades VI–X</span><span class="meta-tag">Science &amp; Arts</span></div>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Intermediate (XI)</h3>
+        </div>
+        <div class="program-body">
+          <p>Pre-Medical, Pre-Engineering and Commerce streams preparing students for board examinations and university entrance.</p>
+          <div class="program-meta"><span class="meta-tag">Grade XI</span><span class="meta-tag">3 Streams</span></div>
+        </div>
+      </article>
+
+      <!-- ONLINE QURAN -->
+      <article class="program-card featured">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-book-quran"></i></div>
+          <h3>Online Quran Pak Education <small>آن لائن قرآن پاک تعلیم</small></h3>
+        </div>
+        <div class="program-body">
+          <p>تجوید کے ساتھ ناظرہ اور حفظِ قرآن کی آن لائن کلاسز — گھر بیٹھے مستند قاری صاحب سے تعلیم حاصل کریں۔ نئے طلبہ اور بڑوں کے لیے علیحدہ بیچز۔</p>
+          <div class="program-meta">
+            <span class="meta-tag">Nazira</span>
+            <span class="meta-tag">Hifz</span>
+            <span class="meta-tag">Tajweed</span>
+            <span class="meta-tag">Online</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- NAMAZ COURSE -->
+      <article class="program-card featured">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-mosque"></i></div>
+          <h3>Namaz Course <small>نماز کورس</small></h3>
+        </div>
+        <div class="program-body">
+          <p>نماز کے ارکان، وضو، اذان، سورتوں کا صحیح تلفظ اور روزمرہ مسنون دعائیں — بچوں اور بڑوں کے لیے مکمل عملی نماز کورس۔</p>
+          <div class="program-meta">
+            <span class="meta-tag">Wudu</span>
+            <span class="meta-tag">5 Prayers</span>
+            <span class="meta-tag">Masnoon Duas</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="program-card">
+        <div class="program-top">
+          <div class="program-icon"><i class="fas fa-futbol"></i></div>
+          <h3>Sports &amp; Co-Curricular</h3>
+        </div>
+        <div class="program-body">
+          <p>Cricket, football, badminton, athletics, debate, scouting and music — because character is built outside the classroom too.</p>
+          <div class="program-meta"><span class="meta-tag">All Grades</span><span class="meta-tag">Daily</span></div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- NEWS -->
+<section class="section" id="news">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Bulletin</div>
+      <h2>News &amp; Announcements</h2>
+      <div class="gold-rule"></div>
+      <p>Notices, results, events and important dates for parents and students.</p>
+    </div>
+    <div class="news-grid" id="newsGrid"></div>
+  </div>
+</section>
+
+<!-- CAREERS -->
+<section class="section section-alt" id="careers">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Join Our Team</div>
+      <h2>Careers at RGS</h2>
+      <div class="gold-rule"></div>
+      <p>We hire educators who believe teaching is a craft — and keep refining it.</p>
+    </div>
+    <div class="careers-intro">
+      <div class="careers-intro-text">
+        <h3>Teach Where It Matters</h3>
+        <p>Our faculty is the single biggest reason families choose RGS. We invest in continuous professional development, provide modern teaching resources, and keep class sizes small enough for real mentorship.</p>
+        <p>قرآن و نماز کے اساتذہ کے لیے خصوصی آسامیاں دستیاب ہیں۔</p>
+      </div>
+      <div class="careers-perks">
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Competitive salary</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Annual training budget</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Provident fund</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Fee concession for children</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Paid summer leave</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Modern library</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Transport allowance</div>
+        <div class="perk-item"><i class="fas fa-check-circle"></i> Merit-based promotion</div>
+      </div>
+    </div>
+    <div class="job-listings" id="jobListings"></div>
+  </div>
+</section>
+
+<!-- ADMIN -->
+<section class="section" id="adminSection" style="display:none;">
+  <div class="container">
+    <div class="admin-panel">
+      <div class="admin-panel-head">
+        <h3><i class="fas fa-user-shield"></i> Administration Panel</h3>
+        <span id="adminStatus">Locked</span>
+      </div>
+
+      <div id="adminLogin" class="admin-body">
+        <div class="form-group" style="max-width:340px;margin:0 auto;">
+          <label for="adminPass">Administrator Password</label>
+          <input type="password" id="adminPass" class="form-control" placeholder="Enter password">
+        </div>
+        <div style="text-align:center;margin-top:18px;">
+          <button class="btn-primary" id="adminLoginBtn" type="button"><i class="fas fa-unlock"></i> Unlock Panel</button>
+        </div>
+        <p style="text-align:center;font-size:.78rem;color:var(--slate-light);margin-top:16px;">Demo password: <strong>rgsa2024</strong></p>
+      </div>
+
+      <div id="adminMain" style="display:none;">
+        <div class="admin-tabs">
+          <button class="admin-tab active" data-pane="paneNews" type="button"><i class="fas fa-bullhorn"></i> Announcements</button>
+          <button class="admin-tab" data-pane="paneJobs" type="button"><i class="fas fa-briefcase"></i> Jobs</button>
+          <button class="admin-tab" data-pane="paneApps" type="button"><i class="fas fa-file-lines"></i> Applications</button>
+        </div>
+        <div class="admin-body">
+          <div class="admin-pane active" id="paneNews">
+            <h4>Publish an Announcement</h4>
+            <div class="form-row">
+              <div class="form-group"><label for="newsTitle">Title</label><input type="text" id="newsTitle" class="form-control" placeholder="e.g. Parent–Teacher Meeting"></div>
+              <div class="form-group"><label for="newsCat">Category</label><input type="text" id="newsCat" class="form-control" placeholder="e.g. Admissions"></div>
+            </div>
+            <div class="form-group"><label for="newsDate">Date</label><input type="date" id="newsDate" class="form-control"></div>
+            <div class="form-group"><label for="newsBody">Details</label><textarea id="newsBody" class="form-control" placeholder="Write the announcement..."></textarea></div>
+            <button class="btn-primary" id="addNewsBtn" type="button"><i class="fas fa-plus"></i> Publish</button>
+            <div class="admin-list" id="adminNewsList"></div>
+          </div>
+
+          <div class="admin-pane" id="paneJobs">
+            <h4>Post a Vacancy</h4>
+            <div class="form-row">
+              <div class="form-group"><label for="jobTitle">Position</label><input type="text" id="jobTitle" class="form-control" placeholder="e.g. Quran Teacher"></div>
+              <div class="form-group"><label for="jobDept">Department</label><input type="text" id="jobDept" class="form-control" placeholder="e.g. Islamiat"></div>
+            </div>
+            <div class="form-row">
+              <div class="form-group"><label for="jobType">Type</label><input type="text" id="jobType" class="form-control" placeholder="e.g. Full-Time"></div>
+              <div class="form-group"><label for="jobExp">Experience</label><input type="text" id="jobExp" class="form-control" placeholder="e.g. 3+ years"></div>
+            </div>
+            <div class="form-group"><label for="jobDeadline">Application Deadline</label><input type="date" id="jobDeadline" class="form-control"></div>
+            <button class="btn-primary" id="addJobBtn" type="button"><i class="fas fa-plus"></i> Post Vacancy</button>
+            <div class="admin-list" id="adminJobList"></div>
+          </div>
+
+          <div class="admin-pane" id="paneApps">
+            <h4>Received Applications</h4>
+            <div class="admin-list" id="adminAppList"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="badge">Get In Touch</div>
+      <h2>Contact &amp; Admissions</h2>
+      <div class="gold-rule"></div>
+      <p>Visit our campus, call the admissions office, or send us a message below.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-card">
+        <h3>Admissions Office</h3>
+        <p>Monday – Saturday, 8:00 AM – 2:00 PM</p>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-location-dot"></i></div>
+          <div class="contact-detail-text"><p>Address</p><strong>Main Station Road, Khairpur Mir's, Sindh</strong></div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-phone"></i></div>
+          <div class="contact-detail-text">
+            <p>Phone / WhatsApp</p>
+            <strong><a href="tel:03011297766">0301 129 7766</a></strong>
+            <strong><a href="tel:03132862344">0313 286 2344</a></strong>
+          </div>
+        </div>
+
+        <div class="contact-detail">
+          <div class="contact-detail-icon"><i class="fas fa-envelope"></i></div>
+          <div class="contact-detail-text">
+            <p>Email</p>
+            <strong><a href="mailto:theroyalgrammarschool11@gmail.com">theroyalgrammarschool11@gmail.com</a></strong>
+          </div>
+        </div>
+
+        <div class="quick-actions">
+          <a class="qa-btn qa-wa" href="https://wa.me/923011297766" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+          <a class="qa-btn qa-call" href="tel:03011297766"><i class="fas fa-phone"></i> Call Now</a>
+          <a class="qa-btn qa-sms" href="sms:03011297766"><i class="fas fa-comment-sms"></i> Send SMS</a>
+        </div>
+      </div>
+
+      <div class="inquiry-form">
+        <h3>Send an Inquiry</h3>
+        <p>Fill in the form and our admissions team will respond within one working day.</p>
+        <form id="inquiryForm" novalidate>
+          <div class="form-row">
+            <div class="form-group"><label for="inqName">Full Name <span>*</span></label><input type="text" id="inqName" class="form-control" placeholder="Your name" required></div>
+            <div class="form-group"><label for="inqPhone">Phone <span>*</span></label><input type="tel" id="inqPhone" class="form-control" placeholder="03xx xxxxxxx" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-group"><label for="inqEmail">Email</label><input type="email" id="inqEmail" class="form-control" placeholder="you@example.com"></div>
+            <div class="form-group">
+              <label for="inqGrade">Program of Interest</label>
+              <select id="inqGrade" class="form-control">
+                <option value="">Select program</option>
+                <option>Playgroup / Nursery</option>
+                <option>Prep</option>
+                <option>Grade I – V</option>
+                <option>Grade VI – X</option>
+                <option>Grade XI</option>
+                <option>Online Quran Pak Education</option>
+                <option>Namaz Course</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group"><label for="inqMsg">Message <span>*</span></label><textarea id="inqMsg" class="form-control" placeholder="How can we help you?" required></textarea></div>
+          <div class="form-footer">
+            <div class="note"><i class="fas fa-shield-halved"></i><span>Your details are kept confidential and used only to respond to your inquiry.</span></div>
+            <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Submit Inquiry</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">
+          <div class="logo-crest"><span>RGS</span></div>
+          <div><h4>The Royal Grammar School</h4><small>&amp; Academy, Khairpur</small></div>
+        </div>
+        <p class="footer-about">A values-driven institution shaping confident, curious and principled young people since 1998 — with Online Quran Pak Education and Namaz Course for all ages.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#programs">Programs</a></li>
+          <li><a href="#news">News</a></li>
+          <li><a href="#careers">Careers</a></li>
+          <li><a href="#contact">Admissions</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Our Courses</h4>
+        <ul>
+          <li><a href="#programs">Playgroup to Grade XI</a></li>
+          <li><a href="#programs">Online Quran Pak</a></li>
+          <li><a href="#programs">Namaz Course</a></li>
+          <li><a href="#programs">Hifz &amp; Nazira</a></li>
+          <li><a href="#programs">Sports &amp; Activities</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Reach Us</h4>
+        <div class="footer-contact-line"><i class="fas fa-location-dot"></i><span>Main Station Road, Khairpur Mir's, Sindh</span></div>
+        <div class="footer-contact-line"><i class="fas fa-phone"></i><span>0301 129 7766</span></div>
+        <div class="footer-contact-line"><i class="fas fa-phone"></i><span>0313 286 2344</span></div>
+        <div class="footer-contact-line"><i class="fas fa-envelope"></i><span style="word-break:break-all">theroyalgrammarschool11@gmail.com</span></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; <span id="year"></span> The Royal Grammar School &amp; Academy, Khairpur. All rights reserved.</span>
+      <div class="footer-socials">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/923011297766" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- APPLICATION MODAL -->
+<div class="modal-overlay" id="applyModal">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <button class="modal-close" id="applyModalClose" type="button" aria-label="Close"><i class="fas fa-times"></i></button>
+      <h3>Apply for this Position</h3>
+      <p>Complete the form below and attach your CV.</p>
+      <div class="job-applied" id="jobApplied">Position</div>
+    </div>
+    <div class="modal-body">
+      <form id="applicationForm" novalidate>
+        <input type="hidden" id="appPosition">
+        <div class="form-row">
+          <div class="form-group"><label for="appName">Full Name <span>*</span></label><input type="text" id="appName" class="form-control" placeholder="Your full name" required></div>
+          <div class="form-group"><label for="appPhone">Phone <span>*</span></label><input type="tel" id="appPhone" class="form-control" placeholder="03xx xxxxxxx" required></div>
+        </div>
+        <div class="form-row">
+          <div class="form-group"><label for="appEmail">Email <span>*</span></label><input type="email" id="appEmail" class="form-control" placeholder="you@example.com" required></div>
+          <div class="form-group"><label for="appQual">Highest Qualification <span>*</span></label><input type="text" id="appQual" class="form-control" placeholder="e.g. M.A. Islamiat / Hafiz" required></div>
+        </div>
+        <div class="form-group"><label for="appExp">Teaching / Relevant Experience</label><input type="text" id="appExp" class="form-control" placeholder="e.g. 4 years at XYZ School"></div>
+        <div class="form-group"><label for="appCover">Cover Note</label><textarea id="appCover" class="form-control" placeholder="Tell us briefly why you are a strong fit..."></textarea></div>
+        <div class="form-group">
+          <label>Attach CV / Resume</label>
+          <label class="file-input-wrap" for="cvFile">
+            <input type="file" id="cvFile" accept=".pdf,.doc,.docx">
+            <i class="fas fa-cloud-upload-alt"></i>
+            <p><strong>Click to upload</strong> your CV</p>
+            <p style="font-size:.74rem;">PDF, DOC or DOCX &middot; max 5 MB</p>
+            <div class="file-name" id="cvFileName"></div>
+          </label>
+        </div>
+        <div class="form-footer">
+          <div class="note"><i class="fas fa-lock"></i><span>Your application is stored securely and reviewed only by the HR committee.</span></div>
+          <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><i class="fas fa-paper-plane"></i> Submit Application</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="toast" id="toast"><i class="fas fa-circle-check"></i><span id="toastText">Saved</span></div>
+
+<script>
+/* DATA */
+const KEY='rgsa_v2';
+const defaults={
+  news:[
+    {id:1,title:'Admissions Open for Session 2025–26',cat:'Admissions',date:'2025-03-01',body:'Applications are now being accepted from Playgroup through Grade XI, as well as for Online Quran Pak Education and Namaz Course. Prospectus available at the admissions office or via WhatsApp.'},
+    {id:2,title:'Online Quran Pak — New Batch Starting',cat:'Quran',date:'2025-03-15',body:'A new online batch for Nazira and Hifz begins next Monday. Separate timings available for children and adults. Contact 0301 129 7766 to register.'},
+    {id:3,title:'Namaz Course for Beginners',cat:'Namaz Course',date:'2025-03-18',body:'A six-week Namaz Course covering Wudu, five daily prayers, and Masnoon Duas will begin this month. Open to students and adults.'},
+    {id:4,title:'Grade X Board Results Announced',cat:'Results',date:'2025-02-14',body:'Congratulations to our Grade X cohort for achieving a 98% pass rate, with 41 students securing A1 grades. Result cards can be collected from the front office.'}
+  ],
+  jobs:[
+    {id:1,title:'Senior Physics Teacher',dept:'Science',type:'Full-Time',exp:'3+ years',deadline:'2025-04-15'},
+    {id:2,title:'Primary English Teacher',dept:'Languages',type:'Full-Time',exp:'2+ years',deadline:'2025-04-22'},
+    {id:3,title:'Quran & Namaz Teacher (قاری صاحب)',dept:'Islamiat',type:'Full-Time',exp:'Hafiz / Qari',deadline:'2025-04-30'},
+    {id:4,title:'Online Quran Instructor',dept:'Islamiat',type:'Part-Time',exp:'1+ year',deadline:'2025-05-10'}
+  ],
+  applications:[]
+};
+let data=load();
+function load(){try{const r=localStorage.getItem(KEY);if(r){const p=JSON.parse(r);return{news:p.news||[],jobs:p.jobs||[],applications:p.applications||[]}}}catch(e){}return JSON.parse(JSON.stringify(defaults))}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(data))}catch(e){}}
+
+const $=s=>document.querySelector(s);
+const $$=s=>Array.from(document.querySelectorAll(s));
+const uid=()=>Date.now()+Math.floor(Math.random()*1000);
+function esc(s){return String(s==null?'':s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;')}
+function fmt(d){if(!d)return'';const x=new Date(d);return isNaN(x)?esc(d):x.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})}
+
+let toastT=null;
+function toast(msg,err){
+  const el=$('#toast');$('#toastText').textContent=msg;
+  el.classList.toggle('error',!!err);
+  el.querySelector('i').className=err?'fas fa-circle-exclamation':'fas fa-circle-check';
+  el.classList.add('show');
+  clearTimeout(toastT);toastT=setTimeout(()=>el.classList.remove('show'),3200);
+}
+
+/* NEWS */
+function renderNews(){
+  const g=$('#newsGrid');
+  if(!data.news.length){g.innerHTML='<div class="empty-state"><i class="fas fa-bullhorn"></i>No announcements yet.</div>';return}
+  const s=[...data.news].sort((a,b)=>new Date(b.date||0)-new Date(a.date||0));
+  g.innerHTML=s.map(n=>`<article class="news-card"><div class="news-card-top"><span class="news-date">${fmt(n.date)}</span><span class="news-cat">${esc(n.cat||'Notice')}</span></div><div class="news-card-body"><h3>${esc(n.title)}</h3><p>${esc(n.body)}</p></div></article>`).join('');
+}
+
+/* JOBS */
+function renderJobs(){
+  const w=$('#jobListings');
+  if(!data.jobs.length){w.innerHTML='<div class="empty-state"><i class="fas fa-briefcase"></i>No open vacancies at the moment.</div>';return}
+  w.innerHTML=data.jobs.map(j=>`<div class="job-card"><div class="job-card-left"><h3>${esc(j.title)}</h3><div class="job-meta"><span class="job-tag"><i class="fas fa-building-columns"></i> ${esc(j.dept||'General')}</span><span class="job-tag"><i class="fas fa-clock"></i> ${esc(j.type||'Full-Time')}</span><span class="job-tag"><i class="fas fa-user-graduate"></i> ${esc(j.exp||'Any')}</span></div>${j.deadline?'<div class="job-deadline"><i class="fas fa-hourglass-half"></i> Apply by '+fmt(j.deadline)+'</div>':''}</div><button class="apply-btn" type="button" data-job="${esc(j.title)}"><i class="fas fa-paper-plane"></i> Apply</button></div>`).join('');
+}
+
+/* ADMIN LISTS */
+function renderAdmin(){
+  $('#adminNewsList').innerHTML=data.news.length?data.news.map(n=>`<div class="admin-list-item"><div><strong>${esc(n.title)}</strong><small>${esc(n.cat||'')} · ${fmt(n.date)}</small></div><button class="btn-danger" data-del="news" data-id="${n.id}" type="button"><i class="fas fa-trash"></i> Delete</button></div>`).join(''):'<div class="empty-state"><i class="fas fa-inbox"></i>No announcements yet.</div>';
+  $('#adminJobList').innerHTML=data.jobs.length?data.jobs.map(j=>`<div class="admin-list-item"><div><strong>${esc(j.title)}</strong><small>${esc(j.dept||'')} · ${esc(j.type||'')} · Deadline: ${fmt(j.deadline)}</small></div><button class="btn-danger" data-del="jobs" data-id="${j.id}" type="button"><i class="fas fa-trash"></i> Delete</button></div>`).join(''):'<div class="empty-state"><i class="fas fa-inbox"></i>No vacancies posted.</div>';
+  $('#adminAppList').innerHTML=data.applications.length?data.applications.map(a=>`<div class="admin-list-item"><div><strong>${esc(a.name)} — ${esc(a.position)}</strong><small>${esc(a.email)} · ${esc(a.phone)} · ${esc(a.qualification||'')}</small><small>Received: ${fmt(a.received)}${a.cv?' · CV: '+esc(a.cv):''}</small></div><button class="btn-danger" data-del="applications" data-id="${a.id}" type="button"><i class="fas fa-trash"></i> Remove</button></div>`).join(''):'<div class="empty-state"><i class="fas fa-inbox"></i>No applications yet.</div>';
+}
+
+/* APPLY MODAL */
+const modal=$('#applyModal');
+function openApply(t){$('#jobApplied').textContent=t;$('#appPosition').value=t;modal.classList.add('open');document.body.style.overflow='hidden';setTimeout(()=>$('#appName').focus(),250)}
+function closeApply(){modal.classList.remove('open');document.body.style.overflow=''}
+
+$('#jobListings').addEventListener('click',e=>{const b=e.target.closest('.apply-btn');if(b)openApply(b.dataset.job)});
+$('#applyModalClose').addEventListener('click',closeApply);
+modal.addEventListener('click',e=>{if(e.target===modal)closeApply()});
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeApply()});
+
+$('#cvFile').addEventListener('change',e=>{
+  const f=e.target.files[0],l=$('#cvFileName');
+  if(!f){l.textContent='';return}
+  if(f.size>5*1024*1024){l.textContent='File too large (max 5 MB)';toast('Please choose a file under 5 MB.',true);e.target.value='';return}
+  l.textContent=f.name;
+});
+
+$('#applicationForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  const name=$('#appName').value.trim(),phone=$('#appPhone').value.trim(),email=$('#appEmail').value.trim(),qual=$('#appQual').value.trim();
+  if(!name||!phone||!email||!qual){toast('Please fill in all required fields.',true);return}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){toast('Please enter a valid email.',true);return}
+  data.applications.push({id:uid(),position:$('#appPosition').value,name,phone,email,qualification:qual,experience:$('#appExp').value.trim(),cover:$('#appCover').value.trim(),cv:$('#cvFile').files[0]?$('#cvFile').files[0].name:'',received:new Date().toISOString().slice(0,10)});
+  save();renderAdmin();e.target.reset();$('#cvFileName').textContent='';closeApply();toast('Application submitted. Thank you!');
+});
+
+/* INQUIRY */
+$('#inquiryForm').addEventListener('submit',e=>{
+  e.preventDefault();
+  if(!$('#inqName').value.trim()||!$('#inqPhone').value.trim()||!$('#inqMsg').value.trim()){toast('Name, phone and message are required.',true);return}
+  e.target.reset();toast('Inquiry sent. We will contact you shortly.');
+});
+
+/* ADMIN */
+let unlocked=false;
+$('#adminToggle').addEventListener('click',()=>{
+  const s=$('#adminSection');s.style.display='block';s.scrollIntoView({behavior:'smooth'});
+  if(!unlocked)setTimeout(()=>$('#adminPass').focus(),450);
+});
+function login(){
+  if($('#adminPass').value==='rgsa2024'){
+    unlocked=true;$('#adminLogin').style.display='none';$('#adminMain').style.display='block';
+    $('#adminStatus').textContent='Unlocked';$('#adminPass').value='';renderAdmin();toast('Admin panel unlocked.');
+  }else{toast('Incorrect password.',true);$('#adminPass').value='';$('#adminPass').focus()}
+}
+$('#adminLoginBtn').addEventListener('click',login);
+$('#adminPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()});
+
+$$('.admin-tab').forEach(t=>t.addEventListener('click',()=>{
+  $$('.admin-tab').forEach(x=>x.classList.remove('active'));
+  $$('.admin-pane').forEach(p=>p.classList.remove('active'));
+  t.classList.add('active');$('#'+t.dataset.pane).classList.add('active');
+}));
+
+$('#addNewsBtn').addEventListener('click',()=>{
+  const t=$('#newsTitle').value.trim(),c=$('#newsCat').value.trim()||'Notice',d=$('#newsDate').value||new Date().toISOString().slice(0,10),b=$('#newsBody').value.trim();
+  if(!t||!b){toast('Title and details are required.',true);return}
+  data.news.push({id:uid(),title:t,cat:c,date:d,body:b});save();renderNews();renderAdmin();
+  $('#newsTitle').value='';$('#newsCat').value='';$('#newsDate').value='';$('#newsBody').value='';toast('Announcement published.');
+});
+
+$('#addJobBtn').addEventListener('click',()=>{
+  const t=$('#jobTitle').value.trim();
+  if(!t){toast('Position title is required.',true);return}
+  data.jobs.push({id:uid(),title:t,dept:$('#jobDept').value.trim()||'General',type:$('#jobType').value.trim()||'Full-Time',exp:$('#jobExp').value.trim()||'Any',deadline:$('#jobDeadline').value||''});
+  save();renderJobs();renderAdmin();
+  $('#jobTitle').value='';$('#jobDept').value='';$('#jobType').value='';$('#jobExp').value='';$('#jobDeadline').value='';toast('Vacancy posted.');
+});
+
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-del]');if(!b)return;
+  data[b.dataset.del]=data[b.dataset.del].filter(i=>i.id!==Number(b.dataset.id));
+  save();renderNews();renderJobs();renderAdmin();toast('Item removed.');
+});
+
+$('#year').textContent=new Date().getFullYear();
+renderNews();renderJobs();renderAdmin();
+</script>
+</body>
+  </html>
